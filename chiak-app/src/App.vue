@@ -1,14 +1,23 @@
-<script setup>
-import Home from "./components/Home.vue";
+<script>
+import Nav from './components/Nav.vue'
+import Home from './components/Home.vue'
+
+export default {
+  name: 'App',
+  components: {
+    Nav,
+    Home
+  }
+  //add all components here but only Home should be displayed?
+}
 </script>
 
 <template>
-  <header></header>
-
-  <main>
+  <div>
     <Home />
-  </main>
+  </div>
 </template>
 
 <style>
+  
 </style>
