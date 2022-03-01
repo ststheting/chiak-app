@@ -1,14 +1,28 @@
-<script setup>
-import Home from "./components/Home.vue";
-</script>
 
 <template>
-  <header></header>
+  <div>
+    <Cart head="items" />
+    <Items :items="items" />
+  </div>
 
-  <main>
-    <Home />
-  </main>
+
 </template>
+
+<script>
+import Cart from './components/Cart.vue'
+import Items from './components/Items.vue'
+
+export default {
+  name: 'App', 
+  components: {
+    Cart,
+    Items,
+  },
+  
+}
+</script>
+
+
 
 <style>
 </style>
