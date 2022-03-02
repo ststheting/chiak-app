@@ -7,8 +7,8 @@
 </template> 
 
 <script>
-import Items from './Items.vue'
-import Button from './Button.vue'
+import Items from '../components/Items.vue'
+import Button from '../components/Button.vue'
 export default {
     name: 'Cart',
     data() {
