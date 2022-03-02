@@ -27,7 +27,7 @@
           "
           type="search"
           name="search"
-          placeholder="Search"
+          placeholder="Search..."
         />
         <button type="submit" class="mt-5 mb-5 p-3 text-lime-600 bg-lime-100 rounded-r-lg">Go!</button>
       </div>
