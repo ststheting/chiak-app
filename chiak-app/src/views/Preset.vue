@@ -2,6 +2,7 @@
     <div>
         <div class = "container">
             <PresetHeader id="presetHeader" title = "Suggested/Previous Profiles" />
+            <AddProfile />
             <Profiles @toggle-select="toggleSelect" @delete-profile="deleteProfile" :profiles="profiles" />
         </div>  
     </div>
@@ -10,12 +11,14 @@
 <script>
 import Profiles from '../components/Profiles.vue'
 import PresetHeader from '../components/PresetHeader.vue'
+import AddProfile from '../components/AddProfile.vue'
 
 export default {
     name: 'Preset',
     components:{
         Profiles,
-        PresetHeader
+        PresetHeader,
+        AddProfile
     },
     data(){
         return{

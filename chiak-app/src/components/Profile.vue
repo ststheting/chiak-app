@@ -1,5 +1,5 @@
 <template>
-    <div @dblclick="$emit('toggle-select', profile.id)" :class="[profile.select ? 'select' : 
+    <div @click="$emit('toggle-select', profile.id)" :class="[profile.select ? 'select' : 
     '', 'profile']">
         <h3>Profile Name: {{profile.name }}
             <i @click="$emit('delete-profile', profile.id)" class="fas fa-times"></i>
@@ -7,7 +7,7 @@
         <p>Sugar Level: {{profile.sugar_lvl}}</p>
         <p>Calorie: {{profile.calorie}}</p>
         <p>Protein: {{profile.protein}}</p>
-        <p>Price: {{profile.price}}</p>
+        <p>Price: ${{profile.price}}</p>
     </div>
     
 </template>

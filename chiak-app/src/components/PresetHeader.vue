@@ -1,7 +1,7 @@
 <template>
     <header>
         <h1>{{ title }}</h1>
-        <PresetButton text="Add New Profile" color="green"/>
+        <PresetButton text="Add New Profile" color="green" />
     </header>
 </template>
 
