@@ -19,14 +19,14 @@ export default {
 </script>
 
 <template>
-  <div id="app">
+  <!-- <div id="app">
     
     <router-view></router-view>
-  </div>
-  
-  <!-- <div>
-    <Preset />
   </div> -->
+
+  <div>
+    <Preset />
+  </div>
 
 </template>
 

@@ -2,7 +2,7 @@
     <div>
         <div class = "container">
             <PresetHeader id="presetHeader" title = "Suggested/Previous Profiles" />
-            <Profiles :profiles="profiles" />
+            <Profiles @toggle-select="toggleSelect" @delete-profile="deleteProfile" :profiles="profiles" />
         </div>  
     </div>
 </template>
@@ -22,6 +22,19 @@ export default {
             profiles:[]
         }
     },
+    methods: {
+        // if refresh, this will come back because we are not persisiting it in backend
+        deleteProfile(id){
+            // confirm delete
+            if(confirm('Are you sure?')){
+                this.profiles = this.profiles.filter((profile) => profile.id !== id)
+            }
+        },
+        // double click to select or deselect
+        toggleSelect(id){
+            this.profiles = this.profiles.map((profile) => profile.id === id ? {...profile, select: !profile.select} : profile)
+        }
+    },
     created(){
         this.profiles = [
             {
@@ -31,6 +44,7 @@ export default {
                 calorie: 500,
                 protein: 200,
                 price: 10.00,
+                select: true,
             },
             {
                 id: 2,
@@ -39,6 +53,7 @@ export default {
                 calorie: 100,
                 protein: 150,
                 price: 12.00,
+                select: true,
             },
             {
                 id: 3,
@@ -47,6 +62,7 @@ export default {
                 calorie: 300,
                 protein: 200,
                 price: 5.00,
+                select: false,
             },
             {
                 id: 4,
@@ -55,6 +71,7 @@ export default {
                 calorie: 500,
                 protein: 200,
                 price: 10.00,
+                select: false,
             },
             {
                 id: 5,
@@ -63,6 +80,7 @@ export default {
                 calorie: 500,
                 protein: 200,
                 price: 10.00,
+                select: false,
             }
         ]
     }

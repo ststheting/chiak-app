@@ -1,6 +1,6 @@
 <template>
     <div :key="profile.id" v-for="profile in profiles">
-        <Profile :profile='profile' />
+        <Profile @toggle-select="$emit('toggle-select', profile.id)" @delete-profile="$emit('delete-profile', profile.id)" :profile='profile' />
     </div>
 </template>
 
@@ -13,6 +13,7 @@ export default{
     },
     components: {
         Profile
-    }
+    },
+    emits: ['delete-profile', 'toggle-select']
 }
 </script>
