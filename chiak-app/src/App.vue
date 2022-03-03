@@ -2,13 +2,16 @@
 import Nav from './components/Nav.vue'
 import Home from './views/Home.vue'
 import Cart from './views/Cart.vue'
+import Preset from './views/Preset.vue'
 
 export default {
   name: 'App',
   components: {
     Nav,
     Home,
-    Cart
+    Cart,
+    Preset
+
   },
 
   //add all components here but only Home should be displayed?
@@ -20,8 +23,13 @@ export default {
     
     <router-view></router-view>
   </div>
+  
+  <!-- <div>
+    <Preset />
+  </div> -->
+
 </template>
 
 <style>
-  
+
 </style>
