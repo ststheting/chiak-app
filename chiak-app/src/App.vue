@@ -11,7 +11,6 @@ export default {
     Home,
     Cart,
     Preset
-
   },
 
   //add all components here but only Home should be displayed?
@@ -23,11 +22,6 @@ export default {
     
     <router-view></router-view>
   </div>
-  
-  <!-- <div>
-    <Preset />
-  </div> -->
-
 </template>
 
 <style>

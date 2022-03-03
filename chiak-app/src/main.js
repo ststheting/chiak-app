@@ -5,7 +5,8 @@ import './index.css'
 import { createRouter, createWebHistory } from 'vue-router'
 import Cart from './views/Cart.vue'
 import Home from './views/Home.vue'
-// import Nav from './views/Nav.vue'
+import Login from './views/Login.vue'
+import Preset from './views/Preset.vue'
 
 const routes = [
     {
@@ -18,6 +19,16 @@ const routes = [
         name: 'Home',
         component: Home
     },
+    {
+        path: '/login',
+        name: 'Login',
+        component: Login
+    },
+    {
+        path: '/profile',
+        name: 'Profile',
+        component: Preset
+    }
 ]
 
 const router = createRouter({
