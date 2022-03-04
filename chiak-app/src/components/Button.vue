@@ -1,5 +1,5 @@
 <template>
-  <button @click="onClick()" class="btn">
+  <button class="btn flex p-2 px-6 bg-red-600 rounded-full text-white" @click="onClick()">
     {{ text }}
   </button>
 </template>

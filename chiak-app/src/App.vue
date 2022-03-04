@@ -1,7 +1,7 @@
 <script>
 import Nav from './components/Nav.vue'
 import Home from './views/Home.vue'
-import Cart from './views/Cart.vue'
+import ShopList from './views/ShopList.vue'
 import Preset from './views/Preset.vue'
 import Register from './views/Register.vue'
 import Login from './views/Login.vue'
@@ -12,7 +12,7 @@ export default {
   components: {
     Nav,
     Home,
-    Cart,
+    ShopList,
     Preset,
     Register,
     Login,

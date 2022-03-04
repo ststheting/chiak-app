@@ -3,7 +3,7 @@ import App from './App.vue'
 // import router from './router'
 import './index.css'
 import { createRouter, createWebHistory } from 'vue-router'
-import Cart from './views/Cart.vue'
+import ShopList from './views/ShopList.vue'
 import Home from './views/Home.vue'
 import Login from './views/Login.vue'
 import Preset from './views/Preset.vue'
@@ -12,9 +12,9 @@ import ForgotPassword from './views/ForgotPassword.vue'
 
 const routes = [
     {
-        path: '/cart',
-        name: 'Cart',
-        component: Cart
+        path: '/shopping',
+        name: 'ShopList',
+        component: ShopList
     },
     {
         path: '/',

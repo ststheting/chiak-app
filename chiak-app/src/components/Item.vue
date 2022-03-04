@@ -1,32 +1,43 @@
 <template>
-    <div>
-        <h3> {{ item.product }} </h3>
-        <img :src=item.image width="100" height="100">
-        <Button @click="clear(item.id)" text="Clear"> </Button>
-        <p>${{ item.price }} </p>
-        <div :key="item.id" v-for="nutrition in item.nutritionalInfo">
-           Energy: {{ nutrition.energy }} kcal
+    <div class="border-2 my-10 p-10 container flex flex-wrap justify-between items-center mx-auto">
+       <div class="flex flex-wrap justify-between items-center">
+        <div class="ml-10 mr-20">
+         <h1 class="text-3xl mb-8"> {{ item.product }} </h1>
+         <img class="border-2 mb-5" :src=item.image width="150" height="150">
+         <p class="text-lg"><b>Price</b>: S${{ item.price }} </p>
         </div>
-        <div :key="item.id" v-for="nutrition in item.nutritionalInfo">
-           Protein: {{ nutrition.protein }} kcal
+        <div class="border-2 p-5 ml-14">
+         <span class="text-xl"><b>Nutrition Facts</b></span>
+         <div class="mt-3">
+            <div :key="item.id" v-for="nutrition in item.nutritionalInfo">
+               <b>Energy</b>: {{ nutrition.energy }} kcal
+            </div>
+            <div :key="item.id" v-for="nutrition in item.nutritionalInfo">
+               <b>Protein</b>: {{ nutrition.protein }} g
+            </div>
+            <div :key="item.id" v-for="nutrition in item.nutritionalInfo">
+               <b>Total Fat</b>: {{ nutrition.fats }} g
+            </div>
+            <div :key="item.id" v-for="nutrition in item.nutritionalInfo">
+               <b>Cholestrol</b>: {{ nutrition.cholestrol }} mg
+            </div>
+            <div :key="item.id" v-for="nutrition in item.nutritionalInfo">
+               <b>Total Carb</b>: {{ nutrition.carbohydrate }} g
+            </div>
+            <div :key="item.id" v-for="nutrition in item.nutritionalInfo">
+               <b>Dietary Fibre</b>: {{ nutrition.dietaryFibre }} g
+            </div>
+            <div :key="item.id" v-for="nutrition in item.nutritionalInfo">
+               <b>Sodium</b>: {{ nutrition.sodium }} mg
+            </div>
+            <div :key="item.id" v-for="nutrition in item.nutritionalInfo">
+               <b>Calcium</b>: {{ nutrition.calcium }} mg
+            </div>
+         </div>
+         </div>
         </div>
-        <div :key="item.id" v-for="nutrition in item.nutritionalInfo">
-           Total fats: {{ nutrition.fats }} kcal
-        </div>
-        <div :key="item.id" v-for="nutrition in item.nutritionalInfo">
-           Cholestrol: {{ nutrition.cholestrol }} kcal
-        </div>
-        <div :key="item.id" v-for="nutrition in item.nutritionalInfo">
-           Carbohydrate: {{ nutrition.carbohydrate }} kcal
-        </div>
-        <div :key="item.id" v-for="nutrition in item.nutritionalInfo">
-           Dietary Fibre: {{ nutrition.dietaryFibre }} kcal
-        </div>
-        <div :key="item.id" v-for="nutrition in item.nutritionalInfo">
-           Sodium: {{ nutrition.sodium }} kcal
-        </div>
-        <div :key="item.id" v-for="nutrition in item.nutritionalInfo">
-           Calcium: {{ nutrition.calcium }} kcal
+        <div>
+        <Button @click="clear(item.id)" class="mr-10" text="Clear"> </Button>
         </div>
     </div>
 </template>

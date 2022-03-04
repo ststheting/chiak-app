@@ -1,12 +1,12 @@
 <template>
     <div class="h-screen flex">
         <div class="flex w-1/2 bg-login bg-cover i justify-around items-center">
-            <div v-if="!readMore">
+            <div v-if="!readMore" class="animate__bounceIn">
                 <h1 class=" text-white font-bold text-4xl font-sans mb-4">Welcome to Chiak</h1>
                 <p class="text-white mt-1">Your favourite dietary companion.</p>
                 <button @click="toggleReadMore()" type="submit" class="block w-28 bg-white text-indigo-800 mt-4 py-2 rounded-2xl font-bold mb-2">Read More</button>
             </div>
-            <div v-else>
+            <div v-else class="animate__bounceIn">
                 <h1 class=" text-white font-bold text-4xl font-sans mb-4">Who are we?</h1>
                 <p class="text-white mt-1">We are a team of passionate individuals who want to<br> encourage healthier lifestyles by easing one step of the <br>process. This is just the beginning!</p>
                 <button @click="toggleReadMore()" type="submit" class="block w-28 bg-white text-indigo-800 mt-4 py-2 rounded-2xl font-bold mb-2">Back</button>
