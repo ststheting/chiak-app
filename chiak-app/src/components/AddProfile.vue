@@ -4,7 +4,7 @@
     <!--Profile input label  -->
     <div class="form-control">
       <label>Profile</label>
-      <input type="text" v-model="text" name="text" placeholder="New Profile Name" />
+      <input type="text" v-model="name" name="name" placeholder="New Profile Name" />
     </div>
 
     <!-- Sugar Level input label -->
@@ -56,7 +56,7 @@
       <input type="checkbox" v-model="reminder" name="reminder" />
     </div> -->
 
-    <input type="submit" value="Save Profile" class="btn btn-block" />
+    <input type="submit" value="Create Profile" class="btn btn-block" />
   </form>
 </template>
 
@@ -65,11 +65,40 @@
         name: 'AddProfile',
         data(){
             return{
-                text:'',
+                name:'',
                 sugar_lvl:'',
                 calorie:'',
                 protein:'',
                 price:''
+            }
+        },
+        methods:{
+            onSubmit(e){
+                e.preventDefault()
+
+                if(!this.name){
+                    alert('Please add a profile')
+                    return
+                }
+
+                // Randomize the id number
+                const newProfile = {
+                    id: Math.floor(Math.random() * 100000),
+                    name: this.name,
+                    sugar_lvl: this.sugar_lvl,
+                    calorie: this.calorie,
+                    protein: this.protein,
+                    price: this.price,
+                }
+
+                this.$emit('add-profile', newProfile)
+
+                this.name = ''
+                this.sugar_lvl = ''
+                this.calorie = ''
+                this.protein = ''
+                this.price = ''
+
             }
         }
     }

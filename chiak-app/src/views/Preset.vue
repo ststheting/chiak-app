@@ -1,8 +1,11 @@
 <template>
     <div>
         <div class = "container">
-            <PresetHeader id="presetHeader" title = "Suggested/Previous Profiles" />
-            <AddProfile />
+            <PresetHeader id="presetHeader" @toggle-add-profile="toggleAddProfile" 
+            title = "Suggested/Previous Profiles" :showAddProfile="showAddProfile" />
+            <div v-show="showAddProfile">
+                <AddProfile @add-profile="addProfile" />
+            </div>
             <Profiles @toggle-select="toggleSelect" @delete-profile="deleteProfile" :profiles="profiles" />
         </div>  
     </div>
@@ -22,10 +25,23 @@ export default {
     },
     data(){
         return{
-            profiles:[]
+            profiles:[],
+
+            // Use add profile button to toggle the 'Create Profile' form
+            showAddProfile: false
         }
     },
     methods: {
+        // toggle the add profile button
+        toggleAddProfile(){
+            this.showAddProfile = !this.showAddProfile
+        },
+
+        // profile comes from the newProfile in AddProfile
+        addProfile(profile){
+            this.profiles = [...this.profiles, profile]
+        },
+
         // if refresh, this will come back because we are not persisiting it in backend
         deleteProfile(id){
             // confirm delete
@@ -102,7 +118,7 @@ body {
 }
 
 #presetHeader{
-    font-size: 30px;
+    font-size: 22px;
 }
 .container {
   max-width: 500px;

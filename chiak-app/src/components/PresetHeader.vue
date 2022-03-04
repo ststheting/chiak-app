@@ -1,7 +1,9 @@
 <template>
     <header>
         <h1>{{ title }}</h1>
-        <PresetButton text="Add New Profile" color="green" />
+        <PresetButton @btn-click="$emit('toggle-add-profile')" 
+        :text="showAddProfile ? 'Close' : 'Add Profile'" 
+        :color="showAddProfile ? 'red' : 'green'" />
     </header>
 </template>
 
@@ -12,7 +14,10 @@ export default {
     name: 'PresetHeader',
     // define a prop using an array
     // can define a prop as an object as well
-    props: ['title'],
+    props: {
+        title: String,
+        showAddProfile: Boolean
+    },
     components: {
         PresetButton
     }
