@@ -3,6 +3,9 @@ import Nav from './components/Nav.vue'
 import Home from './views/Home.vue'
 import Cart from './views/Cart.vue'
 import Preset from './views/Preset.vue'
+import Register from './views/Register.vue'
+import Login from './views/Login.vue'
+import ForgotPassword from './views/ForgotPassword.vue'
 
 export default {
   name: 'App',
@@ -10,10 +13,12 @@ export default {
     Nav,
     Home,
     Cart,
-    Preset
+    Preset,
+    Register,
+    Login,
+    ForgotPassword
   },
-
-  //add all components here but only Home should be displayed?
+  // make it a habit to have all views here
 }
 </script>
 

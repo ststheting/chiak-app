@@ -7,6 +7,8 @@ import Cart from './views/Cart.vue'
 import Home from './views/Home.vue'
 import Login from './views/Login.vue'
 import Preset from './views/Preset.vue'
+import Register from './views/Register.vue'
+import ForgotPassword from './views/ForgotPassword.vue'
 
 const routes = [
     {
@@ -28,6 +30,16 @@ const routes = [
         path: '/profile',
         name: 'Profile',
         component: Preset
+    },
+    {
+        path:  '/register',
+        name: 'Register',
+        component: Register
+    },
+    {
+        path: '/forgotpassword',
+        name: 'ForgotPassword',
+        component: ForgotPassword
     }
 ]
 

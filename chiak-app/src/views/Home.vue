@@ -1,4 +1,5 @@
 <template>
+<div>
   <Nav />
   <div class="container mx-auto mt-20 border-2 border-lime-600 bg-lime-50">
     <div class="container p-5">
@@ -34,6 +35,7 @@
       </div>
     </div>
   </div>
+</div>
 </template>
 <script>
 import Nav from '../components/Nav.vue'
@@ -47,9 +49,4 @@ export default {
 };
 </script>
 <style>
-@import url("https://fonts.googleapis.com/css2?family=Poppins&display=swap");
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap');
-body {
-  font-family: "Poppins", sans-serif;
-}
 </style>
