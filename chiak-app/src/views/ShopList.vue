@@ -24,7 +24,7 @@ import Items from '../components/Items.vue'
 import Button from '../components/Button.vue'
 import Nav from '../components/Nav.vue'
 export default {
-    name: 'Cart',
+    name: 'ShopList',
     data() {
         return {
             items: []
