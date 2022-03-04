@@ -9,10 +9,10 @@
         <p>Protein: {{profile.protein}}</p>
         <p>Price: ${{profile.price}}</p>
     </div>
-    
 </template>
 
 <script>
+
 export default{
     name: 'Profile ',
     props:{

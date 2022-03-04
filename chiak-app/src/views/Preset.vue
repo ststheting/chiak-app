@@ -1,5 +1,6 @@
 <template>
     <div>
+        <Nav />
         <div class = "container">
             <PresetHeader id="presetHeader" @toggle-add-profile="toggleAddProfile" 
             title = "Suggested/Previous Profiles" :showAddProfile="showAddProfile" />
@@ -15,13 +16,15 @@
 import Profiles from '../components/Profiles.vue'
 import PresetHeader from '../components/PresetHeader.vue'
 import AddProfile from '../components/AddProfile.vue'
+import Nav from '../components/Nav.vue'
 
 export default {
     name: 'Preset',
     components:{
         Profiles,
         PresetHeader,
-        AddProfile
+        AddProfile,
+        Nav
     },
     data(){
         return{

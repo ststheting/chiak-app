@@ -2,21 +2,23 @@
   <div>
     <nav class="navbar bg-gray-200">
       <div class="container flex flex-wrap justify-between items-center mx-auto">
-      <a class="navbar-brand" href="">
+      <button class="navbar-brand" @click='home()'>
         <img
           src="./icons/Chiak 2.png"
           width="200"
           height="200"
           class="d-inline-block align-top ml-3"
         />
-      </a>
+      </button>
       <div class="flex">
-          <input type="text" id="email-adress-icon" class="block p-2 pl-10 w-full text-gray-900 bg-gray-50 rounded-lg border border-gray-300 sm:text-md focus:ring-blue-500 focus:border-blue-500" placeholder="Search...">
+          <input type="text" class="block p-2 pl-8 pr-20 w-full text-gray-900 bg-gray-50 rounded-lg border border-gray-300 sm:text-md focus:ring-blue-500 focus:border-blue-500" placeholder="Search for an item...">
+          <button @click='search()'>
             <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" fill="currentColor" class="bi bi-search m-3 ml-4" viewBox="0 0 16 16">
             <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z"/>
             </svg>
+          </button>
       </div>
-      <div class="flex">
+      <div class="flex mr-7">
         <button @click='cart()' role='button'>Shopping List &nbsp&nbsp </button>
         <button @click='cart()'>
             <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-bag m-2" viewBox="0 0 16 16">
@@ -38,6 +40,12 @@ export default {
   methods: {
     cart(){
         this.$router.push("/cart");
+    },
+    home(){
+      this.$router.push('/')
+    },
+    search(){
+      this.$router.push('/catalog')
     }
   }
 };

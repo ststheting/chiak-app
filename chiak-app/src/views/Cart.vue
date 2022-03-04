@@ -1,5 +1,6 @@
 <template>
     <header>
+        <Nav />
         <h1>Cart 
             <Button @click="clearAll()" text="Clear all" /></h1>
         <Items @clear-product="deleteProduct" :items="items" />
@@ -9,6 +10,7 @@
 <script>
 import Items from '../components/Items.vue'
 import Button from '../components/Button.vue'
+import Nav from '../components/Nav.vue'
 export default {
     name: 'Cart',
     data() {
@@ -56,7 +58,8 @@ export default {
     },
     components: {
         Items,
-        Button
+        Button,
+        Nav
     },
     methods: {
         clearAll() {
