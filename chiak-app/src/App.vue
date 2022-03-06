@@ -6,6 +6,7 @@ import Preset from './views/Preset.vue'
 import Register from './views/Register.vue'
 import Login from './views/Login.vue'
 import ForgotPassword from './views/ForgotPassword.vue'
+import Catalog from './views/Catalog.vue'
 
 export default {
   name: 'App',
@@ -16,7 +17,8 @@ export default {
     Preset,
     Register,
     Login,
-    ForgotPassword
+    ForgotPassword,
+    Catalog
   },
   // make it a habit to have all views here
 }

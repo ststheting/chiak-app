@@ -9,12 +9,18 @@ import Login from './views/Login.vue'
 import Preset from './views/Preset.vue'
 import Register from './views/Register.vue'
 import ForgotPassword from './views/ForgotPassword.vue'
+import Catalog from './views/Catalog.vue'
 
 const routes = [
     {
         path: '/shopping',
         name: 'ShopList',
         component: ShopList
+    },
+    {
+        path: '/catalog',
+        name: 'Catalog',
+        component: Catalog
     },
     {
         path: '/',
