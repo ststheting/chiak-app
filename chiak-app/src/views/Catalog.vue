@@ -1,19 +1,23 @@
 <template>
     <div>
-        <h1>Catalog</h1>
-        <CatalogItems @select-item="selectItem" :items="items" />
-        <DisplayedItem :items="items"/>
+        <Nav />
+        <div class="grid grid-cols-3 justify-between items-center mx-auto">
+            <CatalogItems @select-item="selectItem" :items="items" />
+            <DisplayedItem :items="items"/>
+        </div>
     </div>
 </template>
 
 <script>
 import CatalogItems from '../components/catalog/CatalogItems.vue'
 import DisplayedItem from '../components/catalog/DisplayedItem.vue'
+import Nav from '../components/Nav.vue'
 export default {
     name: 'Catalog',
     components: {
         CatalogItems,
-        DisplayedItem
+        DisplayedItem,
+        Nav
     },
     data() {
     return {

@@ -1,5 +1,5 @@
 <template>
-    <div class="border-2 my-10 p-10 container flex flex-wrap justify-between items-center mx-auto">
+    <div class="border-4 my-10 p-6 container flex flex-wrap justify-between items-center mx-auto">
       <div class="flex flex-wrap justify-between items-center">
         <div class="ml-10 mr-10">
          <img class="border-2" :src=item.image width="200" height="200">

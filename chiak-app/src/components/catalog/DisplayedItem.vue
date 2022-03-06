@@ -1,5 +1,4 @@
 <template>
-    <h2>Selected item</h2>
     <div :key="item.id" v-for="item in items">
         <div v-if="item.selected">
         <img :src=item.image width="300" height="300">
