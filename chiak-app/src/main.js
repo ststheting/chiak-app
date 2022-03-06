@@ -24,18 +24,13 @@ const routes = [
     },
     {
         path: '/',
-        name: 'Home',
-        component: Home
+        name: 'Preset',
+        component: Preset
     },
     {
         path: '/login',
         name: 'Login',
         component: Login
-    },
-    {
-        path: '/profile',
-        name: 'Profile',
-        component: Preset
     },
     {
         path:  '/register',
