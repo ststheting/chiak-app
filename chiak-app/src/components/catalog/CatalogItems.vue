@@ -1,8 +1,8 @@
 <template>
-<div>
-    <div :key="item.id" v-for="item in items">
-        <CatalogItem @select-item="$emit('select-item', item.id)" :item="item" />
-    </div>
+    <div class="overflow-y-scroll max-h-screen mr-10 px-10 ">
+        <div :key="item.id" v-for="item in items">
+            <CatalogItem @select-item="$emit('select-item', item.id)" :item="item" />
+        </div>
     </div>
 </template>
 
@@ -21,3 +21,6 @@ export default {
     
 }
 </script>
+
+<style>
+</style>

@@ -1,7 +1,7 @@
 <template>
     <div>
         <Nav />
-        <div class="grid grid-cols-3 justify-between items-center mx-auto">
+        <div class="grid grid-cols-3 justify-between mx-auto">
             <CatalogItems @select-item="selectItem" :items="items" />
             <DisplayedItem :item="selected"/>
         </div>

@@ -1,13 +1,15 @@
 <template>
-   <label>
-    <div @click="select(item.id)" text="Select Item">
-        <h2> {{ item.product }} </h2>
-        <img :src=item.image width="100" height="100">
-        <h3>${{ item.price }} </h3>
-        Click to view more details..
+    <div class="border-2">
+        <label>
+            <div @click="select(item.id)" class="px-6 flex items-center justify-between mx-auto" text="Select Item">
+                <div>
+                    <h1 class="text-xl mb-3"> {{ item.product }} </h1>
+                    <h1 class=""><b>${{ item.price }}</b></h1>
+                </div>
+                <img :src=item.image width="130" height="130">
+            </div>
+        </label>
     </div>
-    </label>
-    <!-- <h3 v-if="item.selected"> {{item.product}} is selected </h3> -->
 </template>
 
 <script>

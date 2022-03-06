@@ -1,7 +1,7 @@
 <template>
     <div>
         <Nav />
-        <div class="m-20 border-2 bg-lime-50">
+        <div class="m-20 bg-lime-50 mx-48">
             <div class="container flex flex-wrap justify-between items-center mx-auto">
                 <div class="flex flex-wrap ml-10 mt-10">
                     <img

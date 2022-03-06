@@ -1,18 +1,18 @@
 <template>
     <div class="border-4 my-10 p-6 container flex flex-wrap justify-between items-center mx-auto">
-      <div class="flex flex-wrap justify-between items-center">
-        <div class="ml-10 mr-10">
-         <img class="border-2" :src=item.image width="200" height="200">
+      <div class="flex flex-wrap justify-between">
+        <div class="mx-6">
+         <img :src=item.image width="200" height="200">
         </div>
-        <div>
-           <h1 class="text-3xl mb-4"> {{ item.product }} </h1>
-           <p class="text-lg"><b>Price</b>: S${{ item.price }} </p>
+        <div class="ml-4">
+           <h1 class="text-2xl mb-4"> {{ item.product }} </h1>
+           <p class="text-md"><b>Price</b>: S${{ item.price }} </p>
         </div>
       </div>
       <div class="flex justify-between items-center">
         <div class="border-2 p-5 mr-20">
-         <span class="text-xl"><b>Nutrition Facts</b></span>
-           <div class="mt-3">
+         <span class="text-lg"><b>Nutrition Facts</b></span>
+           <div class="mt-3 text-sm">
                <div :key="item.id" v-for="nutrition in item.nutritionalInfo">
                   <b>Energy</b>: {{ nutrition.energy }} kcal
                </div>
@@ -33,9 +33,6 @@
                </div>
                <div :key="item.id" v-for="nutrition in item.nutritionalInfo">
                   <b>Sodium</b>: {{ nutrition.sodium }} mg
-               </div>
-               <div :key="item.id" v-for="nutrition in item.nutritionalInfo">
-                  <b>Calcium</b>: {{ nutrition.calcium }} mg
                </div>
             </div>
          </div>
