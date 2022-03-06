@@ -1,6 +1,5 @@
 <template>
-    <div :key="item.id" v-for="item in items">
-        <div v-if="item.selected">
+   <div>
         <img :src=item.image width="300" height="300">
         <h1>{{item.product}} </h1>
         <h2>Price : ${{item.price}}</h2>
@@ -30,9 +29,7 @@
            Calcium: {{ nutrition.calcium }} kcal
         </div>
         <Button @click="addItem(item)" text="Add item to Cart"></Button>
-        </div>
-    </div>
-
+   </div>
 </template>
 
 <script>
@@ -40,7 +37,7 @@ import Button from '../Button.vue'
 export default {
     name: 'DisplayedItem',
     props: {
-        items: Array
+        item: Object
     },
     components: {
         Button

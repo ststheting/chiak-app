@@ -3,7 +3,7 @@
         <Nav />
         <div class="grid grid-cols-3 justify-between items-center mx-auto">
             <CatalogItems @select-item="selectItem" :items="items" />
-            <DisplayedItem :items="items"/>
+            <DisplayedItem :item="selected"/>
         </div>
     </div>
 </template>
@@ -21,7 +21,8 @@ export default {
     },
     data() {
     return {
-        items: []
+        items: [],
+        selected: Object
     }
     },
     created() {
@@ -31,7 +32,6 @@ export default {
             product: 'Yoghurt A',
             price: 5.95,
             image: 'https://media.nedigital.sg/fairprice/fpol/media/images/product/XL/13079298_LXL1_20210610.jpg?w=1200&q=70',
-            selected: true,
             nutritionalInfo: [{
                 energy: 50,
                 protein: 20,
@@ -49,7 +49,6 @@ export default {
             product: 'Yoghurt B',
             price: 3.23,
             image: 'https://media.nedigital.sg/fairprice/fpol/media/images/product/XL/13195585_XL1_20210308.jpg?w=1200&q=70',
-            selected: false,
             nutritionalInfo: [{
                 energy: 310,
                 protein: 202,
@@ -61,11 +60,13 @@ export default {
                 calcium: 50,
             }],
         },
-        ]
+        ],
+        this.selected = this.items[0]
     },
     methods: {
         selectItem(id) {
-            this.items = this.items.map((item) => item.id === id ? {...item, selected: true} : {...item, selected:false})
+            this.selected = this.items.find(item => item.id === id)
+            console.log(this.selected)
         }
     }
 }
