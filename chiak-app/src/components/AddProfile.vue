@@ -1,63 +1,98 @@
 <template>
     <form @submit="onSubmit" class="add-form">
 
-    <!--Profile input label  -->
-    <div class="form-control">
-      <label>Profile</label>
-      <input type="text" v-model="name" name="name" placeholder="New Profile Name" />
-    </div>
+        <!--Profile input label  -->
+        <div class="form-control">
+        <label>Profile</label>
+        <input 
+        type="text" 
+        v-model="name" 
+        name="name" 
+        placeholder="New Profile Name" />
+        </div>
 
-    <!-- Sugar Level input label -->
-    <div class="form-control">
-      <label>Sugar Level</label>
-      <input
-        type="text"
-        v-model="sugar_lvl"
-        name="sugar_lvl"
-        placeholder="Input Sugar Level"
-      />
-    </div>
+        <!-- Rank 1 dropdown -->
+        <div class="form-control">
+        <label>Rank 1 Nutritional Metric:</label>
+        <select v-model="rank_1">
+            <option value="Price - Low">Price - Low</option>
+            <option value="Price - High">Price - High</option>
+            <option value="Energy - Low">Energy - Low</option>
+            <option value="Energy - High">Energy - High</option>
+            <option value="Protein - Low">Protein - Low</option>
+            <option value="Protein - High">Protein - High</option>
+            <option value="Fats - Low">Fats - Low</option>
+            <option value="Fats - High">Fats - High</option>
+            <option value="Cholesterol - Low">Cholesterol - Low</option>
+            <option value="Cholesterol - High">Cholesterol - High</option>
+            <option value="Carbohydrate - Low">Carbohydrate - Low</option>
+            <option value="Carbohydrate - High">Carbohydrate - High</option>
+            <option value="Dietary Fibre - Low">Dietary Fibre - Low</option>
+            <option value="Dietary Fibre - High">Dietary Fibre - High</option>
+            <option value="Sodium - Low">Sodium - Low</option>
+            <option value="Sodium - High">Sodium - High</option>
+            <option value="Calcium - Low">Calcium - Low</option>
+            <option value="Calcium - High">Calcium - High</option>
+        </select>
+        </div>
 
-    <!-- Calorie input label -->
-    <div class="form-control">
-      <label>Calorie</label>
-      <input
-        type="text"
-        v-model="calorie"
-        name="calorie"
-        placeholder="Input Calorie Content"
-      />
-    </div>
+        <!-- Rank 2 dropdown -->
+        <div class="form-control">
+        <label>Rank 2 Nutritional Metric:</label>
+        <select v-model="rank_2">
+            <option value="Price - Low">Price - Low</option>
+            <option value="Price - High">Price - High</option>
+            <option value="Energy - Low">Energy - Low</option>
+            <option value="Energy - High">Energy - High</option>
+            <option value="Protein - Low">Protein - Low</option>
+            <option value="Protein - High">Protein - High</option>
+            <option value="Fats - Low">Fats - Low</option>
+            <option value="Fats - High">Fats - High</option>
+            <option value="Cholesterol - Low">Cholesterol - Low</option>
+            <option value="Cholesterol - High">Cholesterol - High</option>
+            <option value="Carbohydrate - Low">Carbohydrate - Low</option>
+            <option value="Carbohydrate - High">Carbohydrate - High</option>
+            <option value="Dietary Fibre - Low">Dietary Fibre - Low</option>
+            <option value="Dietary Fibre - High">Dietary Fibre - High</option>
+            <option value="Sodium - Low">Sodium - Low</option>
+            <option value="Sodium - High">Sodium - High</option>
+            <option value="Calcium - Low">Calcium - Low</option>
+            <option value="Calcium - High">Calcium - High</option>
+        </select>
+        </div>
 
-    <!-- Protein input label -->
-    <div class="form-control">
-      <label>Protein</label>
-      <input
-        type="text"
-        v-model="protein"
-        name="protein"
-        placeholder="Input Protein Content"
-      />
-    </div>
+        <!-- Rank 3 dropdown -->
+        <div class="form-control">
+        <label>Rank 3 Nutritional Metric:</label>
+        <select v-model="rank_3">
+            <option value="Price - Low">Price - Low</option>
+            <option value="Price - High">Price - High</option>
+            <option value="Energy - Low">Energy - Low</option>
+            <option value="Energy - High">Energy - High</option>
+            <option value="Protein - Low">Protein - Low</option>
+            <option value="Protein - High">Protein - High</option>
+            <option value="Fats - Low">Fats - Low</option>
+            <option value="Fats - High">Fats - High</option>
+            <option value="Cholesterol - Low">Cholesterol - Low</option>
+            <option value="Cholesterol - High">Cholesterol - High</option>
+            <option value="Carbohydrate - Low">Carbohydrate - Low</option>
+            <option value="Carbohydrate - High">Carbohydrate - High</option>
+            <option value="Dietary Fibre - Low">Dietary Fibre - Low</option>
+            <option value="Dietary Fibre - High">Dietary Fibre - High</option>
+            <option value="Sodium - Low">Sodium - Low</option>
+            <option value="Sodium - High">Sodium - High</option>
+            <option value="Calcium - Low">Calcium - Low</option>
+            <option value="Calcium - High">Calcium - High</option>
+        </select>
+        </div>
 
-    <!-- Price input label -->
-    <div class="form-control">
-      <label>Price</label>
-      <input
-        type="text"
-        v-model="price"
-        name="price"
-        placeholder="Input Price"
-      />
-    </div>
+        <div class="form-control form-control-check">
+            <label>Set As Preset</label>
+            <input type="checkbox" v-model="select" name="select" />
+        </div>
 
-    <!-- <div class="form-control form-control-check">
-      <label>Set Reminder</label>
-      <input type="checkbox" v-model="reminder" name="reminder" />
-    </div> -->
-
-    <input type="submit" value="Create Profile" class="btn btn-block" />
-  </form>
+        <input type="submit" value="Create Profile" class="btn btn-block" />
+    </form>
 </template>
 
 <script>
@@ -66,44 +101,49 @@
         data(){
             return{
                 name:'',
-                sugar_lvl:'',
-                calorie:'',
-                protein:'',
-                price:''
+                rank_1:'',
+                rank_2:'',
+                rank_3:'',
+                select: false
             }
         },
         methods:{
+            // When the 'Create Profile' button is clicked
             onSubmit(e){
                 e.preventDefault()
 
+                // if the profile name is not entered
                 if(!this.name){
                     alert('Please add a profile')
                     return
                 }
 
+                // 'save' the data that the user inputs
                 // Randomize the id number
                 const newProfile = {
                     id: Math.floor(Math.random() * 100000),
                     name: this.name,
-                    sugar_lvl: this.sugar_lvl,
-                    calorie: this.calorie,
-                    protein: this.protein,
-                    price: this.price,
+                    rank_1: this.rank_1,
+                    rank_2: this.rank_2,
+                    rank_3: this.rank_3,
+                    select: this.select,
                 }
 
+                // send the custom user input to the parent by providing the event name to add a profile and the data that the user inputs
                 this.$emit('add-profile', newProfile)
 
+                // initialize the fields back to empty to take in new data
                 this.name = ''
-                this.sugar_lvl = ''
-                this.calorie = ''
-                this.protein = ''
-                this.price = ''
-
+                this.rank_1 = ''
+                this.rank_2 = ''
+                this.rank_3 = ''
+                this.select = false
             }
         }
     }
 </script>
 
+// styles for the add profile form
 <style scoped>
 .add-form {
   margin-bottom: 40px;

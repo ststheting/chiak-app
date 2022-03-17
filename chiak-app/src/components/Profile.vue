@@ -1,13 +1,18 @@
+// this component is for displaying individual profiles on the browser page
+// It is the child component of Profiles.vue => 2 levels deep from the main Preset component
 <template>
+<!-- emit the toggle-select event and profile.id to the parent component upon click -->
+<!-- ternary for the select class. If true, then we add a class called select, else do nothing -->
     <div @click="$emit('toggle-select', profile.id)" :class="[profile.select ? 'select' : 
     '', 'profile']">
+    <!-- information of the data fields -->
         <h3>Profile Name: {{profile.name }}
+            <!-- this is the x icon on the profile. When the icon is clicked, it will emit the delete-profile event to the parent component -->
             <i @click="$emit('delete-profile', profile.id)" class="fas fa-times"></i>
         </h3>
-        <p>Sugar Level: {{profile.sugar_lvl}}</p>
-        <p>Calorie: {{profile.calorie}}</p>
-        <p>Protein: {{profile.protein}}</p>
-        <p>Price: ${{profile.price}}</p>
+        <p>Rank 1: {{profile.rank_1}}</p>
+        <p>Rank 2: {{profile.rank_2}}</p>
+        <p>Rank 3: {{profile.rank_3}}</p>
     </div>
 </template>
 

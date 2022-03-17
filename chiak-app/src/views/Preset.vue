@@ -1,12 +1,19 @@
 <template>
     <div>
         <Nav />
+        <!-- self-defined class to implement styling -->
         <div class = "container">
+            <!-- id is for the styling of the PresetHeader -->
+            <!-- catch the toggle-add-profile emit from the PresetHeader, then call the toggleAddProfile method -->
+            <!-- use v-bind to pass in the boolean value of showAddProfile -->
             <PresetHeader id="presetHeader" @toggle-add-profile="toggleAddProfile" 
-            title = "Suggested/Previous Profiles" :showAddProfile="showAddProfile" />
+            title = "List of Profiles" :showAddProfile="showAddProfile" />
+            <!-- this is for toggling the AddProfile form. Catch the add-profile emit and call the addProfile method -->
             <div v-show="showAddProfile">
                 <AddProfile @add-profile="addProfile" />
             </div>
+            <!-- catch the emits and call the respective methods -->
+            <!-- since we are passing in an array from Profiles that will be dynamic, we v-bind the profiles to the profiles data -->
             <Profiles @toggle-select="toggleSelect" @delete-profile="deleteProfile" :profiles="profiles" />
         </div>  
     </div>
@@ -28,6 +35,8 @@ export default {
     },
     data(){
         return{
+            // the data will return an array of of Profile objects
+            // data is not stored here because of the life-cycle method
             profiles:[],
 
             // Use add profile button to toggle the 'Create Profile' form
@@ -35,74 +44,75 @@ export default {
         }
     },
     methods: {
-        // toggle the add profile button
+        // toggle the add profile button by setting the boolean variable to its opposite value
         toggleAddProfile(){
             this.showAddProfile = !this.showAddProfile
         },
 
-        // profile comes from the newProfile in AddProfile
+        // set the profiles as an array and spread across the current profiles, then add a new one onto it
+        // the new profile comes from the AddProfile component
         addProfile(profile){
             this.profiles = [...this.profiles, profile]
         },
 
-        // if refresh, this will come back because we are not persisiting it in backend
+        // pass in the id of the profile that we want to delete. Keep the profile.id that are NOT equal to the id passed in 
+        // the filter will only keep the profile ids that are not equal to the id, so the profile to delete will no longer be in the array
         deleteProfile(id){
             // confirm delete
             if(confirm('Are you sure?')){
                 this.profiles = this.profiles.filter((profile) => profile.id !== id)
             }
         },
-        // double click to select or deselect
+
+        // map through the entire profiles array and see for each profile if the profile.id is equal to the id that we pass in, then spread across
+        // all the profiles to find the matching profile and change its initial select boolean value to the opposite
         toggleSelect(id){
-            this.profiles = this.profiles.map((profile) => profile.id === id ? {...profile, select: !profile.select} : profile)
+            // confirm selecting/unselecting
+            if(confirm('You are about to select/unselect this profile as your preset. Click OK to confirm')){
+                this.profiles = this.profiles.map((profile) => profile.id === id ? {...profile, select: !profile.select} : profile)
+            }
         }
+
+        // toggleSelect(id){
+        //     if(this.profiles.map((profile) => profile.id === id && profile.select === false ? {...profile} : profile)){
+        //         if(confirm('You are about to select this profile as your preset. Click OK to confirm')){
+        //             this.profiles = this.profiles.map((profile) => profile.id === id ? {...profile, select: !profile.select} : profile)
+        //         }
+        //     }
+        //     else if(this.profiles.map((profile) => profile.id === id && profile.select === true ? {...profile} : profile)){
+        //         if(confirm('Would you like to unselect this profile as your preset?')){
+        //             this.profiles = this.profiles.map((profile) => profile.id === id ? {...profile, select: !profile.select} : profile)
+        //         }
+        //     }
+        // }
     },
+
+    // life cycle method to store the data. Define the profiles (hardcode data)
     created(){
         this.profiles = [
             {
                 id: 1,
                 name: "Bulking",
-                sugar_lvl: 10.00,
-                calorie: 500,
-                protein: 200,
-                price: 10.00,
-                select: true,
+                rank_1: "Protein - High",
+                rank_2: "Carbohydrate - High",
+                rank_3: "Price - Low",
+                select:false
             },
             {
                 id: 2,
                 name: "Slimming",
-                sugar_lvl: 5.00,
-                calorie: 100,
-                protein: 150,
-                price: 12.00,
-                select: true,
+                rank_1: "Sugar Level - Low",
+                rank_2: "Fats - Low",
+                rank_3: "Carbohydrate - Low",
+                select: false
             },
             {
                 id: 3,
                 name: "Vegetarian",
-                sugar_lvl: 0.00,
-                calorie: 300,
-                protein: 200,
-                price: 5.00,
-                select: false,
-            },
-            {
-                id: 4,
-                name: "Bulking",
-                sugar_lvl: 10.00,
-                calorie: 500,
-                protein: 200,
-                price: 10.00,
-                select: false,
-            },
-            {
-                id: 5,
-                name: "Bulking",
-                sugar_lvl: 10.00,
-                calorie: 500,
-                protein: 200,
-                price: 10.00,
-                select: false,
+                rank_1: "Protein - High",
+                rank_2: "Carbohydrate - High",
+                rank_3: "Price - Low",
+                select: false
             }
         ]
     }
