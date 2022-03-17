@@ -33,7 +33,6 @@
             <option value="Sodium - High">Sodium - High</option>
             <option value="Calcium - Low">Calcium - Low</option>
             <option value="Calcium - High">Calcium - High</option>
-            <option value="None">None</option>
         </select>
         </div>
 
