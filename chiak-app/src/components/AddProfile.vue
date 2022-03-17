@@ -33,6 +33,7 @@
             <option value="Sodium - High">Sodium - High</option>
             <option value="Calcium - Low">Calcium - Low</option>
             <option value="Calcium - High">Calcium - High</option>
+            <option value="None">None</option>
         </select>
         </div>
 
@@ -58,6 +59,7 @@
             <option value="Sodium - High">Sodium - High</option>
             <option value="Calcium - Low">Calcium - Low</option>
             <option value="Calcium - High">Calcium - High</option>
+            <option value="None">None</option>
         </select>
         </div>
 
@@ -83,6 +85,7 @@
             <option value="Sodium - High">Sodium - High</option>
             <option value="Calcium - Low">Calcium - Low</option>
             <option value="Calcium - High">Calcium - High</option>
+            <option value="None">None</option>
         </select>
         </div>
 
@@ -115,6 +118,21 @@
                 // if the profile name is not entered
                 if(!this.name){
                     alert('Please add a profile')
+                    return
+                }
+
+                if(!this.rank_1){
+                    alert('Please rank at least one nutritional metric')
+                    return
+                }
+
+                if(!this.rank_2){
+                    alert('Please rank your 2nd highest nutritional metric priority')
+                    return
+                }
+
+                if(!this.rank_3){
+                    alert('Please rank your 3rd highest nutritional metric priority')
                     return
                 }
 
