@@ -67,10 +67,9 @@ export default {
         // map through the entire profiles array and see for each profile if the profile.id is equal to the id that we pass in, then spread across
         // all the profiles to find the matching profile and change its initial select boolean value to the opposite
         toggleSelect(id){
-            // confirm selecting/unselecting
-            if(confirm('You are about to select/unselect this profile as your preset. Click OK to confirm')){
-                this.profiles = this.profiles.map((profile) => profile.id === id ? {...profile, select: !profile.select} : profile)
-            }
+            // notify selecting/unselecting
+            this.profiles = this.profiles.map((profile) => profile.id === id ? {...profile, select: !profile.select} : profile)
+            alert('You have selected/unselected this profile as your preset!')
         }
 
         // toggleSelect(id){
