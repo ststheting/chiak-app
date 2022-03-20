@@ -3,10 +3,10 @@
         <label>
             <div @click="select(item.id)" class="px-6 flex items-center justify-between mx-auto" text="Select Item">
                 <div>
-                    <h1 class="text-xl mb-3"> {{ item.product }} </h1>
+                    <h1 class="text-xl mb-3"> {{ item.name }} </h1>
                     <h1 class=""><b>${{ item.price }}</b></h1>
                 </div>
-                <img :src=item.image width="130" height="130">
+                <img :src=item.imgUrl width="130" height="130">
             </div>
         </label>
     </div>

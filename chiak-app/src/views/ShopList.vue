@@ -14,6 +14,9 @@
                 </div>
                 <button class="flex mr-20 mt-10 p-2 px-4 bg-lime-600 rounded-full text-white" @click="clearAll()">Clear All Items</button>
             </div>
+            <!-- <div>
+                <button class="flex mr-20 mt-10 p-2 px-4 bg-lime-600 rounded-full text-white" @click="test()">Test</button>
+            </div> -->
             <Items @clear-product="deleteProduct" :items="items" />
         </div>
     </div>
@@ -23,6 +26,7 @@
 import Items from '../components/Items.vue'
 import Button from '../components/Button.vue'
 import Nav from '../components/Nav.vue'
+import ShoppingListService from '../services/ShoppingListService'
 export default {
     name: 'ShopList',
     data() {
@@ -31,42 +35,14 @@ export default {
         }
     },
     created() {
-        this.items = [
-        {
-            id: 1,
-            product: 'Yoghurt',
-            price: 5.90,
-            image: 'https://media.nedigital.sg/fairprice/fpol/media/images/product/XL/13079298_LXL1_20210610.jpg?w=1200&q=70',
-            clear: false,
-            nutritionalInfo: [{
-                energy: 50,
-                protein: 20,
-                fats: 10,
-                cholestrol: 25,
-                carbohydrate: 10,
-                dietaryFibre: 5,
-                sodium: 90,
-                calcium: 100,
-            }],
-        }, 
-        {
-            id: 2,
-            product: 'Peanut Butter',
-            price: 3.20,
-            image: 'https://media.nedigital.sg/fairprice/fpol/media/images/product/XL/47440_XL1_20210827.jpg?w=1200&q=70',
-            clear: false,
-            nutritionalInfo: [{
-                energy: 30,
-                protein: 20,
-                fats: 10,
-                cholestrol: 25,
-                carbohydrate: 10,
-                dietaryFibre: 5,
-                sodium: 90,
-                calcium: 100,
-            }],
-        },
-        ]
+        ShoppingListService.getProducts()
+        .then((res) => {
+            if(res == "failed"){
+
+            } else {
+                this.items = JSON.parse(localStorage.getItem("list"));
+            }
+        })
     },
     components: {
         Items,
@@ -74,13 +50,25 @@ export default {
         Nav
     },
     methods: {
+        test() {
+            console.log(this.items.length)
+        },
         clearAll() {
             this.items = []
+            ShoppingListService.deleteAllProducts();
         },
         deleteProduct(id) {
             // console.log('items', id);
             this.items = this.items.filter((item) => item.id !== id)
-        }
+            ShoppingListService.deleteProduct(id);
+            // .then((res) => {
+            //     if(res == "failed") {
+
+            //     } else {
+            //         this.$router.push('/')
+            //     }
+            // });
+        },
     },
 
     
