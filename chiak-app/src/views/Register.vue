@@ -20,21 +20,21 @@
                 <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 12a4 4 0 10-8 0 4 4 0 008 0zm0 0v1.5a2.5 2.5 0 005 0V12a9 9 0 10-9 9m4.5-1.206a8.959 8.959 0 01-4.5 1.207" />
                 </svg>
-                <input class="pl-2 outline-none border-none" type="email" name="" id="" placeholder="Email Address" />
+                <input v-model.lazy="input.username" class="pl-2 outline-none border-none" type="email" name="" id="" placeholder="Email Address" />
             </div>
             <div class="flex items-center border-2 py-2 px-3 rounded-2xl mb-4">
                 <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-gray-400" viewBox="0 0 20 20" fill="currentColor">
                 <path fill-rule="evenodd" d="M5 9V7a5 5 0 0110 0v2a2 2 0 012 2v5a2 2 0 01-2 2H5a2 2 0 01-2-2v-5a2 2 0 012-2zm8-2v2H7V7a3 3 0 016 0z" clip-rule="evenodd" />
                 </svg>
-                <input class="pl-2 outline-none border-none" type="password" name="" id="" placeholder="Password" />
+                <input v-model.lazy="input.password" class="pl-2 outline-none border-none" type="password" name="" id="" placeholder="Password" />
             </div>
             <div class="flex items-center border-2 py-2 px-3 rounded-2xl">
                 <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-gray-400" viewBox="0 0 20 20" fill="currentColor">
                 <path fill-rule="evenodd" d="M5 9V7a5 5 0 0110 0v2a2 2 0 012 2v5a2 2 0 01-2 2H5a2 2 0 01-2-2v-5a2 2 0 012-2zm8-2v2H7V7a3 3 0 016 0z" clip-rule="evenodd" />
                 </svg>
-                <input class="pl-2 outline-none border-none" type="password" name="" id="" placeholder="Confirm Password" />
+                <input v-model.lazy="confirmPass" class="pl-2 outline-none border-none" type="password" name="" id="" placeholder="Confirm Password" />
             </div>
-            <button type="submit" class="block w-full bg-green-600 mt-5 py-2 rounded-2xl text-white font-semibold mb-2">Register</button>
+            <button @click='register()' type="button" class="block w-full bg-green-600 mt-5 py-2 rounded-2xl text-white font-semibold mb-2">Register</button>
             <span @click='login()' class="text-sm ml-2 hover:text-green-500 cursor-pointer">Back to Login</span>
             </form>
         </div>
@@ -42,19 +42,51 @@
     </div>
 </template>
 <script>
+import UserService from '../services/UserService'
+
 export default {
     name: "Register",
     props: {
-
+        UserService
     },
     data () {
         return {
-            readMore: false
+            readMore: false,
+            confirmPass: "",
+            input: {
+                username: "",
+                password: "",
+                authorities: "ROLE_ADMIN"
+            }
         }
     },
     methods: {
         login() {
             this.$router.push('/login')
+        },
+        register() {
+            try{
+                if(this.input.username != "" && this.input.password != "") {
+                    if(this.confirmPass == this.input.password){
+                        console.log(this.input);
+                        UserService.registerUser(this.input)
+                        .then((res) => {
+                            if(res == "failed"){
+                                console.log("Register failed")
+                            } else {
+                                console.log("Register success")
+                                this.$router.push('/login');
+                            }
+                        })
+                        
+                    } else {
+                        console.log("Password and Confirm Password do not match")
+                    }
+                } else {
+                    console.log("A username and password must be present")
+                }
+            } catch (error){
+            }
         },
         toggleReadMore(){
             this.readMore = !this.readMore
