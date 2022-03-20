@@ -17,7 +17,7 @@
       </div>
       <div class="ml-4">
         <h1 class="text-2xl mb-4">{{ item.name }}</h1>
-        <p class="text-md"><b>Brand</b>: S${{ item.brand }}</p>
+        <p class="text-md"><b>Brand</b>: {{ item.brand }}</p>
         <p class="text-md"><b>Price</b>: S${{ item.price }}</p>
       </div>
     </div>
@@ -25,10 +25,24 @@
       <div class="border-2 p-5 mr-20">
         <span class="text-lg"><b>Nutrition Facts</b></span>
         <div class="mt-3 text-sm">
-          <b>Calories</b>: {{ item.calories }} kcal <b>Sugar</b>:
-          {{ item.sugar }} g <b>Total Fat</b>: {{ item.fats }} g <b>Protein</b>:
-          {{ item.protein }} mg <b>Total Sodium</b>: {{ item.sodium }} g
+           <div>
+               <b>Calories</b>: {{ item.calories }} kcal 
+           </div>
+           <div>
+          <b>Sugar</b>: {{ item.sugar }} g 
+           </div>
+           <div>
+          <b>Total Fat</b>: {{ item.fats }} g 
+           </div>
+           <div>
+          <b>Protein</b>: {{ item.protein }} mg 
+           </div>
+           <div>
+          <b>Total Sodium</b>: {{ item.sodium }} g
+           </div>
+           <div>
           <b>Fibre</b>: {{ item.fibre }} g
+           </div>
         </div>
       </div>
       <div>

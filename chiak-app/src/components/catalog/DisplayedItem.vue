@@ -12,10 +12,24 @@
     <div class="mt-16">
       <h3 class="text-xl mb-5"><b>Nutrional Facts: </b></h3>
       <div class="mb-16">
-        <b>Calories</b>: {{ item.calories }} kcal <b>Protein</b>:
-        {{ item.sugar }} g <b>Total fats</b>: {{ item.fat }} g
-        <b>Cholestrol</b>: {{ item.protein }} mg <b>Carbohydrate</b>:
-        {{ item.sodium }} g <b>Dietary Fibre</b>: {{ item.fibre }} g
+         <div>
+        <b>Calories</b>: {{ item.calories }} kcal 
+        </div>
+        <div>
+        <b>Sugar</b>: {{ item.sugar }} g
+        </div>
+         <div>
+         <b>Total fats</b>: {{ item.fat }} g
+         </div>
+         <div>
+        <b>Protein</b>: {{ item.protein }} mg 
+         </div>
+         <div>
+        <b>Sodium</b>: {{ item.sodium }} g 
+        </div>
+      <div>
+        <b>Fibre</b>: {{ item.fibre }} g
+        </div>
       </div>
     </div>
     <button
