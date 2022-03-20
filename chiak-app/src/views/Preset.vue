@@ -61,7 +61,7 @@ export default {
         // the filter will only keep the profile ids that are not equal to the id, so the profile to delete will no longer be in the array
         deleteProfile(id){
             // confirm delete
-            if(confirm('Are you sure?')){
+            if(confirm('You are about to delete this profile, are you sure?')){
                 this.profiles = this.profiles.filter((profile) => profile.id !== id)
             }
         },
@@ -69,9 +69,7 @@ export default {
         // map through the entire profiles array and see for each profile if the profile.id is equal to the id that we pass in, then spread across
         // all the profiles to find the matching profile and change its initial select boolean value to the opposite
         toggleSelect(id){
-            // notify selecting/unselecting
             this.profiles = this.profiles.map((profile) => profile.id === id ? {...profile, select: !profile.select} : profile)
-            alert('You have selected/unselected this profile as your preset!')
         }
 
         // toggleSelect(id){
