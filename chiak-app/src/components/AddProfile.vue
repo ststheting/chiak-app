@@ -15,24 +15,18 @@
         <div class="form-control">
         <label>Rank 1 Nutritional Metric:</label>
         <select v-model="rank_1">
-            <option value="Price - Low">Price - Low</option>
-            <option value="Price - High">Price - High</option>
-            <option value="Energy - Low">Energy - Low</option>
-            <option value="Energy - High">Energy - High</option>
-            <option value="Protein - Low">Protein - Low</option>
-            <option value="Protein - High">Protein - High</option>
-            <option value="Fats - Low">Fats - Low</option>
-            <option value="Fats - High">Fats - High</option>
-            <option value="Cholesterol - Low">Cholesterol - Low</option>
-            <option value="Cholesterol - High">Cholesterol - High</option>
-            <option value="Carbohydrate - Low">Carbohydrate - Low</option>
-            <option value="Carbohydrate - High">Carbohydrate - High</option>
-            <option value="Dietary Fibre - Low">Dietary Fibre - Low</option>
-            <option value="Dietary Fibre - High">Dietary Fibre - High</option>
-            <option value="Sodium - Low">Sodium - Low</option>
-            <option value="Sodium - High">Sodium - High</option>
-            <option value="Calcium - Low">Calcium - Low</option>
-            <option value="Calcium - High">Calcium - High</option>
+            <option value="Price-Low">Price-Low</option>
+            <option value="Price-High">Price-High</option>
+            <option value="Protein-Low">Protein-Low</option>
+            <option value="Protein-High">Protein-High</option>
+            <option value="Fats-Low">Fats-Low</option>
+            <option value="Fats-High">Fats-High</option>
+            <option value="Fibre-Low">Fibre-Low</option>
+            <option value="Fibre-High">Fibre-High</option>
+            <option value="Sodium-Low">Sodium-Low</option>
+            <option value="Sodium-High">Sodium-High</option>
+            <option value="Sugar-Low">Sugar-Low</option>
+            <option value="Sugar-High">Sugar-High</option>
         </select>
         </div>
 
@@ -40,24 +34,18 @@
         <div class="form-control">
         <label>Rank 2 Nutritional Metric:</label>
         <select v-model="rank_2">
-            <option value="Price - Low">Price - Low</option>
-            <option value="Price - High">Price - High</option>
-            <option value="Energy - Low">Energy - Low</option>
-            <option value="Energy - High">Energy - High</option>
-            <option value="Protein - Low">Protein - Low</option>
-            <option value="Protein - High">Protein - High</option>
-            <option value="Fats - Low">Fats - Low</option>
-            <option value="Fats - High">Fats - High</option>
-            <option value="Cholesterol - Low">Cholesterol - Low</option>
-            <option value="Cholesterol - High">Cholesterol - High</option>
-            <option value="Carbohydrate - Low">Carbohydrate - Low</option>
-            <option value="Carbohydrate - High">Carbohydrate - High</option>
-            <option value="Dietary Fibre - Low">Dietary Fibre - Low</option>
-            <option value="Dietary Fibre - High">Dietary Fibre - High</option>
-            <option value="Sodium - Low">Sodium - Low</option>
-            <option value="Sodium - High">Sodium - High</option>
-            <option value="Calcium - Low">Calcium - Low</option>
-            <option value="Calcium - High">Calcium - High</option>
+            <option value="Price-Low">Price-Low</option>
+            <option value="Price-High">Price-High</option>
+            <option value="Protein-Low">Protein-Low</option>
+            <option value="Protein-High">Protein-High</option>
+            <option value="Fats-Low">Fats-Low</option>
+            <option value="Fats-High">Fats-High</option>
+            <option value="Fibre-Low">Fibre-Low</option>
+            <option value="Fibre-High">Fibre-High</option>
+            <option value="Sodium-Low">Sodium-Low</option>
+            <option value="Sodium-High">Sodium-High</option>
+            <option value="Sugar-Low">Sugar-Low</option>
+            <option value="Sugar-High">Sugar-High</option>
             <option value="None">None</option>
         </select>
         </div>
@@ -66,24 +54,18 @@
         <div class="form-control">
         <label>Rank 3 Nutritional Metric:</label>
         <select v-model="rank_3">
-            <option value="Price - Low">Price - Low</option>
-            <option value="Price - High">Price - High</option>
-            <option value="Energy - Low">Energy - Low</option>
-            <option value="Energy - High">Energy - High</option>
-            <option value="Protein - Low">Protein - Low</option>
-            <option value="Protein - High">Protein - High</option>
-            <option value="Fats - Low">Fats - Low</option>
-            <option value="Fats - High">Fats - High</option>
-            <option value="Cholesterol - Low">Cholesterol - Low</option>
-            <option value="Cholesterol - High">Cholesterol - High</option>
-            <option value="Carbohydrate - Low">Carbohydrate - Low</option>
-            <option value="Carbohydrate - High">Carbohydrate - High</option>
-            <option value="Dietary Fibre - Low">Dietary Fibre - Low</option>
-            <option value="Dietary Fibre - High">Dietary Fibre - High</option>
-            <option value="Sodium - Low">Sodium - Low</option>
-            <option value="Sodium - High">Sodium - High</option>
-            <option value="Calcium - Low">Calcium - Low</option>
-            <option value="Calcium - High">Calcium - High</option>
+            <option value="Price-Low">Price-Low</option>
+            <option value="Price-High">Price-High</option>
+            <option value="Protein-Low">Protein-Low</option>
+            <option value="Protein-High">Protein-High</option>
+            <option value="Fats-Low">Fats-Low</option>
+            <option value="Fats-High">Fats-High</option>
+            <option value="Fibre-Low">Fibre-Low</option>
+            <option value="Fibre-High">Fibre-High</option>
+            <option value="Sodium-Low">Sodium-Low</option>
+            <option value="Sodium-High">Sodium-High</option>
+            <option value="Sugar-Low">Sugar-Low</option>
+            <option value="Sugar-High">Sugar-High</option>
             <option value="None">None</option>
         </select>
         </div>

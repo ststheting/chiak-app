@@ -9,8 +9,9 @@
             <!-- use v-bind to pass in the boolean value of showAddProfile -->
             <div class="border-2 rounded-md mt-8 p-10">
                 <PresetHeader id="presetHeader" @toggle-add-profile="toggleAddProfile" :showAddProfile="showAddProfile" />
-                <!-- this is for toggling the AddProfile form. Catch the add-profile emit and call the addProfile method -->
+                <!-- this is for toggling the AddProfile form. v-show to show the form -->
                 <div v-show="showAddProfile">
+                    <!-- Catch the add-profile emit and call the addProfile method to add a new profile -->
                     <AddProfile @add-profile="addProfile" />
                 </div>
                 <!-- catch the emits and call the respective methods -->
@@ -92,25 +93,25 @@ export default {
             {
                 id: 1,
                 name: "Bulking",
-                rank_1: "Protein - High",
-                rank_2: "Carbohydrate - High",
-                rank_3: "Price - Low",
+                rank_1: "Protein-High",
+                rank_2: "Fibre-High",
+                rank_3: "Price-Low",
                 select:false
             },
             {
                 id: 2,
                 name: "Slimming",
-                rank_1: "Sugar Level - Low",
-                rank_2: "Fats - Low",
-                rank_3: "Carbohydrate - Low",
+                rank_1: "Sugar-Low",
+                rank_2: "Fats-Low",
+                rank_3: "Price-Low",
                 select: false
             },
             {
                 id: 3,
                 name: "Vegetarian",
-                rank_1: "Protein - High",
-                rank_2: "Carbohydrate - High",
-                rank_3: "Price - Low",
+                rank_1: "Protein-High",
+                rank_2: "Carbohydrate-High",
+                rank_3: "Sodium-Low",
                 select: false
             }
         ]
