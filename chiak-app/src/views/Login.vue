@@ -59,11 +59,12 @@ export default {
             try{
                 if(this.input.username != "" && this.input.password != "") {
                     console.log(this.input);
-                    UserService.authenticate(input)
+                    UserService.authenticate(this.input)
                     .then((res) => {
                         if(res == "failed"){
                             console.log("Login failed")
                         } else {
+                            console.log("Login success")
                             this.$router.push('/')
                         }
                     })
