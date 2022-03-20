@@ -2,19 +2,21 @@
     <div>
         <Nav />
         <!-- self-defined class to implement styling -->
-        <div class = "container">
+        <div class = "container m-10 mx-auto">
+            <div class="text-3xl font-semibold text-center">Welcome back, Shaun!</div>
             <!-- id is for the styling of the PresetHeader -->
             <!-- catch the toggle-add-profile emit from the PresetHeader, then call the toggleAddProfile method -->
             <!-- use v-bind to pass in the boolean value of showAddProfile -->
-            <PresetHeader id="presetHeader" @toggle-add-profile="toggleAddProfile" 
-            title = "List of Profiles" :showAddProfile="showAddProfile" />
-            <!-- this is for toggling the AddProfile form. Catch the add-profile emit and call the addProfile method -->
-            <div v-show="showAddProfile">
-                <AddProfile @add-profile="addProfile" />
+            <div class="border-2 rounded-md mt-8 p-10">
+                <PresetHeader id="presetHeader" @toggle-add-profile="toggleAddProfile" :showAddProfile="showAddProfile" />
+                <!-- this is for toggling the AddProfile form. Catch the add-profile emit and call the addProfile method -->
+                <div v-show="showAddProfile">
+                    <AddProfile @add-profile="addProfile" />
+                </div>
+                <!-- catch the emits and call the respective methods -->
+                <!-- since we are passing in an array from Profiles that will be dynamic, we v-bind the profiles to the profiles data -->
+                <Profiles @toggle-select="toggleSelect" @delete-profile="deleteProfile" :profiles="profiles" />
             </div>
-            <!-- catch the emits and call the respective methods -->
-            <!-- since we are passing in an array from Profiles that will be dynamic, we v-bind the profiles to the profiles data -->
-            <Profiles @toggle-select="toggleSelect" @delete-profile="deleteProfile" :profiles="profiles" />
         </div>  
     </div>
 </template>
@@ -125,22 +127,17 @@ export default {
   margin: 0;
   padding: 0;
 }
-body {
-  font-family: 'Poppins', sans-serif;
-}
 
 #presetHeader{
     font-size: 22px;
 }
-.container {
+/* .container {
   max-width: 500px;
   margin: 30px auto;
   overflow: auto;
   min-height: 300px;
-  border: 1px solid steelblue;
   padding: 30px;
-  border-radius: 5px;
-}
+} */
 .btn {
   display: inline-block;
   background: #000;

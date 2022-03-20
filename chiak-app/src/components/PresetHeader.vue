@@ -1,7 +1,7 @@
 <template>
     <header>
         <!-- title for the parent component to declare -->
-        <h1>{{ title }}</h1>
+        <h1>Your Profiles</h1>
         <!-- bind data with PresetButton -->
         <PresetButton @btn-click="$emit('toggle-add-profile')" 
         :text="showAddProfile ? 'Close' : 'Add Profile'" 
@@ -21,7 +21,6 @@ export default {
     // define a prop using an array
     // can define a prop as an object as well
     props: {
-        title: String,
         showAddProfile: Boolean
     },
 
