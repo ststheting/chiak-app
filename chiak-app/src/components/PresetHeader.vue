@@ -7,6 +7,7 @@
         :text="showAddProfile ? 'Close' : 'Add Profile'" 
         :color="showAddProfile ? 'red' : 'green'" />
     </header>
+    <h2><em>Please select only <b>ONE</b> profile as your preset</em></h2>
 </template>
 
 <script>
