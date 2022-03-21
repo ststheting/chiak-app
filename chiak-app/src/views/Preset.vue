@@ -70,7 +70,7 @@ export default {
         // map through the entire profiles array and see for each profile if the profile.id is equal to the id that we pass in, then spread across
         // all the profiles to find the matching profile and change its initial select boolean value to the opposite
         toggleSelect(id){
-            this.profiles = this.profiles.map((profile) => profile.id === id ? {...profile, select: !profile.select} : profile)
+            this.profiles = this.profiles.map((profile) => profile.id === id ? {...profile, select: !profile.select} : {...profile, select: false})
         }
 
         // toggleSelect(id){
