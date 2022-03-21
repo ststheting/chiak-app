@@ -14,7 +14,7 @@
         <!-- Rank 1 dropdown -->
         <div class="form-control">
         <label>Rank 1 Nutritional Metric:</label>
-        <select v-model="rank_1">
+        <select v-model="factor1">
             <option value="Price-Low">Price-Low</option>
             <option value="Price-High">Price-High</option>
             <option value="Protein-Low">Protein-Low</option>
@@ -33,7 +33,7 @@
         <!-- Rank 2 dropdown -->
         <div class="form-control">
         <label>Rank 2 Nutritional Metric:</label>
-        <select v-model="rank_2">
+        <select v-model="factor2">
             <option value="Price-Low">Price-Low</option>
             <option value="Price-High">Price-High</option>
             <option value="Protein-Low">Protein-Low</option>
@@ -53,7 +53,7 @@
         <!-- Rank 3 dropdown -->
         <div class="form-control">
         <label>Rank 3 Nutritional Metric:</label>
-        <select v-model="rank_3">
+        <select v-model="factor3">
             <option value="Price-Low">Price-Low</option>
             <option value="Price-High">Price-High</option>
             <option value="Protein-Low">Protein-Low</option>
@@ -70,10 +70,10 @@
         </select>
         </div>
 
-        <div class="form-control form-control-check">
+        <!-- <div class="form-control form-control-check">
             <label>Set As Preset</label>
             <input type="checkbox" v-model="select" name="select" />
-        </div>
+        </div> -->
 
         <input type="submit" value="Create Profile" class="btn btn-block" />
     </form>
@@ -85,10 +85,9 @@
         data(){
             return{
                 name:'',
-                rank_1:'',
-                rank_2:'',
-                rank_3:'',
-                select: false
+                factor1:'',
+                factor2:'',
+                factor3:'',
             }
         },
         methods:{
@@ -102,17 +101,17 @@
                     return
                 }
 
-                if(!this.rank_1){
+                if(!this.factor1){
                     alert('Please rank at least one nutritional metric')
                     return
                 }
 
-                if(!this.rank_2){
+                if(!this.factor2){
                     alert('Please rank your 2nd highest nutritional metric priority')
                     return
                 }
 
-                if(!this.rank_3){
+                if(!this.factor3){
                     alert('Please rank your 3rd highest nutritional metric priority')
                     return
                 }
@@ -122,10 +121,9 @@
                 const newProfile = {
                     id: Math.floor(Math.random() * 100000),
                     name: this.name,
-                    rank_1: this.rank_1,
-                    rank_2: this.rank_2,
-                    rank_3: this.rank_3,
-                    select: this.select,
+                    factor1: this.factor1,
+                    factor2: this.factor2,
+                    factor3: this.factor3,
                 }
 
                 // send the custom user input to the parent by providing the event name to add a profile and the data that the user inputs
@@ -133,10 +131,9 @@
 
                 // initialize the fields back to empty to take in new data
                 this.name = ''
-                this.rank_1 = ''
-                this.rank_2 = ''
-                this.rank_3 = ''
-                this.select = false
+                this.factor1 = ''
+                this.factor2 = ''
+                this.factor3 = ''
             }
         }
     }

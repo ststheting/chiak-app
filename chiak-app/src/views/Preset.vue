@@ -46,6 +46,7 @@ export default {
             showAddProfile: false
         }
     },
+    // life cycle method to store the data. Define the profiles (hardcode data)
     created(){
         this.profiles = 
         // PresetService.getPresets()
@@ -104,26 +105,8 @@ export default {
         // all the profiles to find the matching profile and change its initial select boolean value to the opposite
         toggleSelect(id){
             this.selected = this.profiles.find(profile => profile.id === id)
-            // this.profiles = this.profiles.map((profile) => profile.id === id ? {...profile, select: !profile.select} : profile)
-
         }
-
-        // toggleSelect(id){
-        //     if(this.profiles.map((profile) => profile.id === id && profile.select === false ? {...profile} : profile)){
-        //         if(confirm('You are about to select this profile as your preset. Click OK to confirm')){
-        //             this.profiles = this.profiles.map((profile) => profile.id === id ? {...profile, select: !profile.select} : profile)
-        //         }
-        //     }
-        //     else if(this.profiles.map((profile) => profile.id === id && profile.select === true ? {...profile} : profile)){
-        //         if(confirm('Would you like to unselect this profile as your preset?')){
-        //             this.profiles = this.profiles.map((profile) => profile.id === id ? {...profile, select: !profile.select} : profile)
-        //         }
-        //     }
-        // }
-    },
-
-    // life cycle method to store the data. Define the profiles (hardcode data)
-    
+    },    
 }
 </script>
 
