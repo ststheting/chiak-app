@@ -16,7 +16,7 @@
                 </div>
                 <!-- catch the emits and call the respective methods -->
                 <!-- since we are passing in an array from Profiles that will be dynamic, we v-bind the profiles to the profiles data -->
-                <Profiles @toggle-select="toggleSelect" @delete-profile="deleteProfile" :profiles="profiles" />
+                <Profiles @toggle-select="toggleSelect" @delete-profile="deleteProfile" :profiles="profiles" :selected="selected"/>
             </div>
         </div>  
     </div>
@@ -27,7 +27,7 @@ import Profiles from '../components/Profiles.vue'
 import PresetHeader from '../components/PresetHeader.vue'
 import AddProfile from '../components/AddProfile.vue'
 import Nav from '../components/Nav.vue'
-
+import PresetService from '../services/PresetService'
 export default {
     name: 'Preset',
     components:{
@@ -41,11 +41,44 @@ export default {
             // the data will return an array of of Profile objects
             // data is not stored here because of the life-cycle method
             profiles:[],
-
+            selected: Object,
             // Use add profile button to toggle the 'Create Profile' form
             showAddProfile: false
         }
     },
+    created(){
+        this.profiles = 
+        // PresetService.getPresets()
+        //     .then((res) => {
+        //         this.profiles = JSON.parse(localStorage.getItem("presets"));
+        //         this.selected[0] = this.profiles[0];
+        //         })
+        [
+            {
+                id: 1,
+                name: "Bulking",
+                factor1: "Protein-High",
+                factor2: "Fibre-High",
+                factor3: "Price-Low",
+            },
+            {
+                id: 2,
+                name: "Slimming",
+                factor1: "Sugar-Low",
+                factor2: "Fats-Low",
+                factor3: "Price-Low",
+            },
+            {
+                id: 3,
+                name: "Vegetarian",
+                factor1: "Protein-High",
+                factor2: "Carbohydrate-High",
+                factor3: "Sodium-Low",
+            }
+        ],
+        this.selected = this.profiles[0]
+    },
+    
     methods: {
         // toggle the add profile button by setting the boolean variable to its opposite value
         toggleAddProfile(){
@@ -70,7 +103,8 @@ export default {
         // map through the entire profiles array and see for each profile if the profile.id is equal to the id that we pass in, then spread across
         // all the profiles to find the matching profile and change its initial select boolean value to the opposite
         toggleSelect(id){
-            this.profiles = this.profiles.map((profile) => profile.id === id ? {...profile, select: !profile.select} : profile)
+            this.selected = this.profiles.find(profile => profile.id === id)
+            // this.profiles = this.profiles.map((profile) => profile.id === id ? {...profile, select: !profile.select} : profile)
         }
 
         // toggleSelect(id){
@@ -88,34 +122,7 @@ export default {
     },
 
     // life cycle method to store the data. Define the profiles (hardcode data)
-    created(){
-        this.profiles = [
-            {
-                id: 1,
-                name: "Bulking",
-                rank_1: "Protein-High",
-                rank_2: "Fibre-High",
-                rank_3: "Price-Low",
-                select:false
-            },
-            {
-                id: 2,
-                name: "Slimming",
-                rank_1: "Sugar-Low",
-                rank_2: "Fats-Low",
-                rank_3: "Price-Low",
-                select: false
-            },
-            {
-                id: 3,
-                name: "Vegetarian",
-                rank_1: "Protein-High",
-                rank_2: "Carbohydrate-High",
-                rank_3: "Sodium-Low",
-                select: false
-            }
-        ]
-    }
+    
 }
 </script>
 

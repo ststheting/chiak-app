@@ -3,7 +3,7 @@
     <!-- loop through the profiles array to output a single profile component -->
     <div :key="profile.id" v-for="profile in profiles">
         <!-- catch the toggle-select emit from Profile child component and emit this event to the Preset parent component. Same for toggle-select -->
-        <Profile @toggle-select="$emit('toggle-select', profile.id)" @delete-profile="$emit('delete-profile', profile.id)" :profile='profile' />
+        <Profile @toggle-select="$emit('toggle-select', profile.id)" @delete-profile="$emit('delete-profile', profile.id)" :profile='profile' :selected='selected'/>
     </div>
 </template>
 
@@ -12,7 +12,8 @@ import Profile from './Profile.vue'
 export default{
     name: 'Profiles',
     props: {
-        profiles: Array
+        profiles: Array,
+        selected: Object
     },
     components: {
         Profile

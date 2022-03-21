@@ -2,13 +2,13 @@
 <!-- emit the toggle-select event and profile.id to the parent component upon click -->
 <!-- ternary for the select class. If true, then we add a class called select, else do nothing -->
     <div @toggle-select="$emit('toggle-select', profile.id)"
-    :class="[profile.select ? 'select' : '', 'profile flex mx-auto justify-between items-center']">
+    :class="[profile.id == selected.id ? 'select' : '', 'profile flex mx-auto justify-between items-center']">
     <!-- information of the data fields -->
         <div>
             <h3>{{profile.name }}</h3>
-            <p>Rank 1: {{profile.rank_1}}</p>
-            <p>Rank 2: {{profile.rank_2}}</p>
-            <p>Rank 3: {{profile.rank_3}}</p>
+            <p>Rank 1: {{profile.factor1}}</p>
+            <p>Rank 2: {{profile.factor2}}</p>
+            <p>Rank 3: {{profile.factor3}}</p>
 
             <!-- <button class="button" @click="() => TogglePopup('buttonTrigger')">Select</button> -->
 
@@ -20,12 +20,12 @@
 </template>
 
 <script>
-
 export default{
     name: 'Profile ',
     props:{
-        profile: Object
-    },
+        profile: Object,
+        selected: Object
+    }
 }
 </script>
 
