@@ -105,6 +105,7 @@ export default {
         toggleSelect(id){
             this.selected = this.profiles.find(profile => profile.id === id)
             // this.profiles = this.profiles.map((profile) => profile.id === id ? {...profile, select: !profile.select} : profile)
+
         }
 
         // toggleSelect(id){
