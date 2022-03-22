@@ -8,13 +8,15 @@
         type="text" 
         v-model="name" 
         name="name" 
+        class="rounded-md w-2/5 text-base h-8 mt-3 p-5 border-2"
         placeholder="New Profile Name" />
         </div>
+        <!-- height, border, margin, padding -->
 
         <!-- Rank 1 dropdown -->
         <div class="form-control">
         <label>Rank 1 Nutritional Metric:</label>
-        <select v-model="factor1">
+        <select class="rounded-md p-1 border-2 mt-2" v-model="factor1">
             <option value="Price-Low">Price-Low</option>
             <option value="Price-High">Price-High</option>
             <option value="Protein-Low">Protein-Low</option>
@@ -33,7 +35,7 @@
         <!-- Rank 2 dropdown -->
         <div class="form-control">
         <label>Rank 2 Nutritional Metric:</label>
-        <select v-model="factor2">
+        <select class="rounded-md p-1 border-2 mt-2" v-model="factor2">
             <option value="Price-Low">Price-Low</option>
             <option value="Price-High">Price-High</option>
             <option value="Protein-Low">Protein-Low</option>
@@ -46,14 +48,14 @@
             <option value="Sodium-High">Sodium-High</option>
             <option value="Sugar-Low">Sugar-Low</option>
             <option value="Sugar-High">Sugar-High</option>
-            <option value="None">None</option>
+            <option value="None" selected="selected">None</option>
         </select>
         </div>
 
         <!-- Rank 3 dropdown -->
         <div class="form-control">
         <label>Rank 3 Nutritional Metric:</label>
-        <select v-model="factor3">
+        <select class="rounded-md p-1 border-2 mt-2" v-model="factor3">
             <option value="Price-Low">Price-Low</option>
             <option value="Price-High">Price-High</option>
             <option value="Protein-Low">Protein-Low</option>
@@ -75,7 +77,7 @@
             <input type="checkbox" v-model="select" name="select" />
         </div> -->
 
-        <input type="submit" value="Create Profile" class="btn btn-block" />
+        <input type="submit" value="Create Profile" class="btn btn-block bg-green-600 text-center" />
     </form>
 </template>
 
@@ -86,8 +88,8 @@
             return{
                 name:'',
                 factor1:'',
-                factor2:'',
-                factor3:'',
+                factor2:'None',
+                factor3:'None',
             }
         },
         methods:{
@@ -97,7 +99,7 @@
 
                 // if the profile name is not entered
                 if(!this.name){
-                    alert('Please add a profile')
+                    alert('Please add a profile name')
                     return
                 }
 
@@ -150,13 +152,6 @@
 .form-control label {
   display: block;
 }
-.form-control input {
-  width: 100%;
-  height: 40px;
-  margin: 5px;
-  padding: 3px 7px;
-  font-size: 17px;
-}
 .form-control-check {
   display: flex;
   align-items: center;
@@ -171,7 +166,6 @@
 }
 .btn {
   display: inline-block;
-  background: #000;
   color: #fff;
   border: none;
   padding: 10px 20px;

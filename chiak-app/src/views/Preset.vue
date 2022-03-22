@@ -7,7 +7,7 @@
             <!-- id is for the styling of the PresetHeader -->
             <!-- catch the toggle-add-profile emit from the PresetHeader, then call the toggleAddProfile method -->
             <!-- use v-bind to pass in the boolean value of showAddProfile -->
-            <div class="border-2 rounded-md mt-8 p-10">
+            <div class="border-2 rounded-md mt-8 p-10 px-20 mx-48">
                 <PresetHeader id="presetHeader" @toggle-add-profile="toggleAddProfile" :showAddProfile="showAddProfile" />
                 <!-- this is for toggling the AddProfile form. v-show to show the form -->
                 <div v-show="showAddProfile">

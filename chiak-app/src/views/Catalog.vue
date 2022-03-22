@@ -1,6 +1,7 @@
 <template>
     <div>
         <Nav />
+        <div class="mt-20 text-3xl text-center">No items found. Try searching for something else!</div>
         <div class="grid grid-cols-3 justify-between mx-auto">
             <CatalogItems @select-item="selectItem" :items="items" />
             <DisplayedItem :item="selected"/>
@@ -30,7 +31,7 @@ export default {
         this.items = CatalogService.getProducts()
             .then((res) => {
                 if(res == "failed"){
-
+                    
                 } else {
                     this.items = JSON.parse(localStorage.getItem("catalog"));
                     this.selected = this.items[0]
