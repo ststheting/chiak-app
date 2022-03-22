@@ -1,9 +1,13 @@
 <template>
     <div>
         <Nav />
-        <div class="grid grid-cols-3 justify-between mx-auto">
+        <div v-if="this.display" class="grid grid-cols-3 justify-between mx-auto">
             <CatalogItems @select-item="selectItem" :items="items" />
-            <DisplayedItem :item="selected"/>
+            <DisplayedItem :item="selected" />
+            
+        </div>
+        <div v-else>
+                <h1>No Items To Display :-( </h1>
         </div>
     </div>
 </template>
@@ -21,22 +25,29 @@ export default {
         Nav
     },
     data() {
-    return {
-        items: [],
-        selected: Object
-    }
+        return {
+            items: [],
+            selected: Object,
+            display: true
+        }
     },
     created() {
         this.items = CatalogService.getProducts()
             .then((res) => {
                 if(res == "failed"){
-
+                    this.display = false;
                 } else {
                     this.items = JSON.parse(localStorage.getItem("catalog"));
-                    this.selected = this.items[0]
+                    this.selected = this.items[0];
+                    if(this.items.length == 0) {
+                        this.display = false;
+                    } else {
+                        this.display = true;
+                    }
                 }
             })
     },
+
         // [
         // {
         //     id: 1,
@@ -76,6 +87,9 @@ export default {
         selectItem(id) {
             this.selected = this.items.find(item => item.id === id)
             console.log(this.selected)
+        },
+        test(){
+            console.log(this.items.length)
         }
     }
 }
