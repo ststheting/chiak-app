@@ -28,6 +28,7 @@ import PresetHeader from '../components/PresetHeader.vue'
 import AddProfile from '../components/AddProfile.vue'
 import Nav from '../components/Nav.vue'
 import PresetService from '../services/PresetService'
+import UserService from '../services/UserService'
 export default {
     name: 'Preset',
     components:{
@@ -58,6 +59,9 @@ export default {
                 console.log("success");
             }
         })
+        if(!UserService.isLoggedIn()){
+            this.$router.push('/login')
+        }
     },
     methods: {
         // toggle the add profile button by setting the boolean variable to its opposite value

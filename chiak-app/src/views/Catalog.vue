@@ -17,6 +17,7 @@ import CatalogItems from '../components/catalog/CatalogItems.vue'
 import DisplayedItem from '../components/catalog/DisplayedItem.vue'
 import Nav from '../components/Nav.vue'
 import CatalogService from '../services/CatalogService'
+import UserService from '../services/UserService'
 export default {
     name: 'Catalog',
     components: {
@@ -46,6 +47,9 @@ export default {
                     }
                 }
             })
+        if(!UserService.isLoggedIn()){
+            this.$router.push('/login')
+        }
     },
 
         // [

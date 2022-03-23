@@ -29,7 +29,7 @@ class UserService {
             .post(AUTH_API_URL, user)
             .then((response) => {
                 localStorage.setItem("user", JSON.stringify(response.data));
-                console.log(localStorage.getItem("user"));
+                // console.log(localStorage.getItem("user"));
                 // return response.data;
             })
             .catch((err) => {

@@ -27,6 +27,7 @@ import Items from '../components/Items.vue'
 import Button from '../components/Button.vue'
 import Nav from '../components/Nav.vue'
 import ShoppingListService from '../services/ShoppingListService'
+import UserService from '../services/UserService'
 export default {
     name: 'ShopList',
     data() {
@@ -43,6 +44,9 @@ export default {
                 this.items = JSON.parse(localStorage.getItem("list"));
             }
         })
+        if(!UserService.isLoggedIn()){
+            this.$router.push('/login')
+        }
     },
     components: {
         Items,
