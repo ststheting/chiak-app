@@ -10,10 +10,26 @@ class PresetService {
             })
             .catch((err) => {
                 console.log(err);
+                console.log("your mother pass away");
                 return "failed"
                 // throw err;
             });
     }
+    addProfile = async (profile) => {
+        return axios
+        .post(`http://localhost:8080/users/1/presets`, profile)
+        .catch((err) => {
+            console.log(err);
+            throw err;
+        });
+    }
+    deleteProfile = async(id) => {
+        return axios
+        .delete(`http://localhost:8080/users/1/presets/${id}`, id)
+        .catch((err) => {
+            console.log(err);
+            throw err;
+        })
+    }
 }
-
 export default new PresetService();

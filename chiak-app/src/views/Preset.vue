@@ -48,38 +48,17 @@ export default {
     },
     // life cycle method to store the data. Define the profiles (hardcode data)
     created(){
-        this.profiles = 
-        // PresetService.getPresets()
-        //     .then((res) => {
-        //         this.profiles = JSON.parse(localStorage.getItem("presets"));
-        //         this.selected[0] = this.profiles[0];
-        //         })
-        [
-            {
-                id: 1,
-                name: "Bulking",
-                factor1: "Protein-High",
-                factor2: "Fibre-High",
-                factor3: "Price-Low",
-            },
-            {
-                id: 2,
-                name: "Slimming",
-                factor1: "Sugar-Low",
-                factor2: "Fats-Low",
-                factor3: "Price-Low",
-            },
-            {
-                id: 3,
-                name: "Vegetarian",
-                factor1: "Protein-High",
-                factor2: "Carbohydrate-High",
-                factor3: "Sodium-Low",
+        PresetService.getPresets()
+        .then((res) => {
+            if(res == "failed"){
+                console.log("failed");
+            } else {
+                this.profiles = JSON.parse(localStorage.getItem("presets"));
+                this.selected = this.profiles[0];
+                console.log("success");
             }
-        ],
-        this.selected = this.profiles[0]
+        })
     },
-    
     methods: {
         // toggle the add profile button by setting the boolean variable to its opposite value
         toggleAddProfile(){
@@ -90,6 +69,7 @@ export default {
         // the new profile comes from the AddProfile component
         addProfile(profile){
             this.profiles = [...this.profiles, profile]
+            PresetService.addProfile(profile)
         },
 
         // pass in the id of the profile that we want to delete. Keep the profile.id that are NOT equal to the id passed in 
@@ -97,6 +77,7 @@ export default {
         deleteProfile(id){
             // confirm delete
             if(confirm('You are about to delete this profile, are you sure?')){
+                PresetService.deleteProfile(id)
                 this.profiles = this.profiles.filter((profile) => profile.id !== id)
             }
         },
