@@ -44,6 +44,8 @@ export default {
                 this.items = JSON.parse(localStorage.getItem("list"));
             }
         })
+    },
+    mounted() {
         if(!UserService.isLoggedIn()){
             this.$router.push('/login')
         }

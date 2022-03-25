@@ -1,5 +1,5 @@
 <template>
-    <form @submit="onSubmit" class="add-form">
+    <form @submit="onSubmit" class="mb-10 border-4 px-10 pb-10 rounded-lg">
 
         <!--Profile input label  -->
         <div class="form-control">
@@ -16,7 +16,7 @@
         <!-- Rank 1 dropdown -->
         <div class="form-control">
         <label>Rank 1 Nutritional Metric:</label>
-        <select class="rounded-md p-1 border-2 mt-2" v-model="factor1">
+        <select class="rounded-md p-1 border-2 mt-3" v-model="factor1">
             <option value="Price-Low">Price-Low</option>
             <option value="Price-High">Price-High</option>
             <option value="Protein-Low">Protein-Low</option>
@@ -35,7 +35,7 @@
         <!-- Rank 2 dropdown -->
         <div class="form-control">
         <label>Rank 2 Nutritional Metric:</label>
-        <select class="rounded-md p-1 border-2 mt-2" v-model="factor2">
+        <select class="rounded-md p-1 border-2 mt-3" v-model="factor2">
             <option value="Price-Low">Price-Low</option>
             <option value="Price-High">Price-High</option>
             <option value="Protein-Low">Protein-Low</option>
@@ -55,7 +55,7 @@
         <!-- Rank 3 dropdown -->
         <div class="form-control">
         <label>Rank 3 Nutritional Metric:</label>
-        <select class="rounded-md p-1 border-2 mt-2" v-model="factor3">
+        <select class="rounded-md p-1 border-2 mt-3" v-model="factor3">
             <option value="Price-Low">Price-Low</option>
             <option value="Price-High">Price-High</option>
             <option value="Protein-Low">Protein-Low</option>
@@ -143,9 +143,6 @@
 
 // styles for the add profile form
 <style scoped>
-.add-form {
-  margin-bottom: 40px;
-}
 .form-control {
   margin: 20px 0;
 }

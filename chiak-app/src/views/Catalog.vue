@@ -47,6 +47,8 @@ export default {
                     }
                 }
             })
+    },
+    mounted() {
         if(!UserService.isLoggedIn()){
             this.$router.push('/login')
         }
