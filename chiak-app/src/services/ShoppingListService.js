@@ -1,9 +1,10 @@
 import axios from "axios";
+import UserService from "./UserService";
 
 class ShoppingListService {
     getProducts = async () => {
         return axios
-            .get(`http://localhost:8080/users/1/cart`)
+            .get(`http://localhost:8080/users/${UserService.getCurrentUser().id}/cart`)
             .then((response) => {
                 localStorage.setItem("list", JSON.stringify(response.data));
                 // return response.data;
@@ -17,7 +18,7 @@ class ShoppingListService {
 
     deleteProduct = async(id) => {
         return axios
-            .delete(`http://localhost:8080/users/1/cart/${id}`)
+            .delete(`http://localhost:8080/users/${UserService.getCurrentUser().id}/cart/${id}`)
             .catch((err) => {
                 console.log(err);
                 return "failed";
@@ -27,7 +28,7 @@ class ShoppingListService {
 
     deleteAllProducts = async() => {
         return axios
-            .delete(`http://localhost:8080/users/1/cart/deleteAll`)
+            .delete(`http://localhost:8080/users/${UserService.getCurrentUser().id}/cart/deleteAll`)
             .catch((err) => {
                 console.log(err);
                 throw err;

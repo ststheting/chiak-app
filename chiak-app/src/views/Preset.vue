@@ -3,7 +3,7 @@
         <Nav />
         <!-- self-defined class to implement styling -->
         <div class = "container m-10 mx-auto">
-            <div class="text-3xl font-semibold text-center">Welcome back, Shaun!</div>
+            <div class="text-3xl font-semibold text-center">Welcome back to <span class="text-green-600">Chiak!</span></div>
             <!-- id is for the styling of the PresetHeader -->
             <!-- catch the toggle-add-profile emit from the PresetHeader, then call the toggleAddProfile method -->
             <!-- use v-bind to pass in the boolean value of showAddProfile -->
@@ -56,6 +56,7 @@ export default {
             } else {
                 this.profiles = JSON.parse(localStorage.getItem("presets"));
                 this.selected = this.profiles[0];
+                localStorage.setItem("presettemp", JSON.stringify(this.selected))
                 console.log("success");
             }
         })
@@ -90,6 +91,8 @@ export default {
         // all the profiles to find the matching profile and change its initial select boolean value to the opposite
         toggleSelect(id){
             this.selected = this.profiles.find(profile => profile.id === id)
+            console.log(this.selected)
+            localStorage.setItem("presettemp", JSON.stringify(this.selected))
         }
     },    
 }

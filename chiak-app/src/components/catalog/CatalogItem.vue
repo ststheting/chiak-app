@@ -6,7 +6,7 @@
                     <h1 class="text-xl mb-3"> {{ item.name }} </h1>
                     <h1 class=""><b>${{ item.price }}</b></h1>
                 </div>
-                <img :src=item.imgUrl width="130" height="130">
+                <img class="ml-2" :src=item.imgUrl width="130" height="130">
             </div>
         </label>
     </div>

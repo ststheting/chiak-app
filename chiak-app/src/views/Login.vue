@@ -54,6 +54,9 @@ export default {
             }
         }
     },
+    mounted(){
+        localStorage.removeItem("user");
+    },
     methods: {
         login(){
             try{

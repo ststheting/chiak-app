@@ -134,8 +134,8 @@
                 // initialize the fields back to empty to take in new data
                 this.name = ''
                 this.factor1 = ''
-                this.factor2 = ''
-                this.factor3 = ''
+                this.factor2 = 'None'
+                this.factor3 = 'None'
             }
         }
     }
