@@ -60,6 +60,8 @@ export default {
                 console.log("success");
             }
         })
+    },
+    mounted() {
         if(!UserService.isLoggedIn()){
             this.$router.push('/login')
         }

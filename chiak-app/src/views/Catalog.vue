@@ -47,7 +47,6 @@ export default {
         //             }
         //         }
         //     })
-        localStorage.setItem("searching", "no");
         this.items = JSON.parse(localStorage.getItem("catalog"));
         this.selected = this.items[0];
         if(this.items.length == 0) {

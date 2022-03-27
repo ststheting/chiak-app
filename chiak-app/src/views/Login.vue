@@ -62,6 +62,8 @@ export default {
             try{
                 if(this.input.username != "" && this.input.password != "") {
                     console.log(this.input);
+                    // localStorage.setItem("user", this.input);
+                    // this.$router.push('/');
                     UserService.authenticate(this.input)
                     .then((res) => {
                         if(res == "failed"){
@@ -71,11 +73,6 @@ export default {
                             this.$router.push('/')
                         }
                     })
-                    // if(localStorage.getItem("user") != null){
-                    //     this.$router.push('/');
-                    // } else {
-                    //     console.log("Login failed");
-                    // }
                 } else {
                     console.log("A username and password must be present");
                 }

@@ -22,7 +22,7 @@
       </div>
     </div>
     <div class="flex justify-between items-center">
-      <div class="border-2 p-5 mr-20">
+      <div class="border-2 p-5 mr-12">
         <span class="text-lg"><b>Nutrition Facts</b></span>
         <div class="mt-3 text-sm">
            <div>
