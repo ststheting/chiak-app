@@ -8,11 +8,11 @@ class PresetService {
             .then((response) => {
                 console.log(UserService.getCurrentUser().id)
                 console.log(response.data)
-                localStorage.setItem("presets", JSON.stringify(response.data));
-                // return response.data;
+                // localStorage.setItem("presets", JSON.stringify(response.data));
+                return response.data;
             })
             .catch((err) => {
-                console.log(err);
+                // console.log(err);
                 return "failed"
                 // throw err;
             });

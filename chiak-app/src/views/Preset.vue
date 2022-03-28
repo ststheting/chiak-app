@@ -54,9 +54,15 @@ export default {
             if(res == "failed"){
                 console.log("failed");
             } else {
-                this.profiles = JSON.parse(localStorage.getItem("presets"));
+                console.log(res);
+                // this.profiles = JSON.parse(localStorage.getItem("presets"));
+                this.profiles = res;
                 if(this.profiles.length > 0)
-                    this.selected = JSON.parse(localStorage.getItem("presettemp"))
+                    if(localStorage.getItem("presettemp") != null)
+                        this.selected = JSON.parse(localStorage.getItem("presettemp"))
+                    else
+                        this.selected = this.profiles[0]
+                //upon first login, there is no presettemp to consider
                 // localStorage.setItem("presettemp", JSON.stringify(this.selected))
                 console.log("success");
             }
