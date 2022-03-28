@@ -24,8 +24,8 @@
             <option value="Sodium">Sodium</option>
             <option value="Sugar">Sugar</option>
         </select>
-        <input type="radio" name="preference1" value="-high" v-model="factor1Preference" checked/> High
-        <input type="radio" name="preference1" value="-low" v-model="factor1Preference" /> Low
+        <label v-if="factor1 != ''"><input type="radio" name="preference1" value="-high" v-model="factor1Preference" checked/> High </label>
+        <label v-if="factor1 != ''"><input type="radio" name="preference1" value="-low" v-model="factor1Preference" /> Low </label>
         <br>
         </div>
 
@@ -42,8 +42,8 @@
             <option value="None" selected>None</option>
 
         </select>
-        <input type="radio" name="preference2" value="-high" v-model="factor2Preference" checked/> High
-        <input type="radio" name="preference2" value="-low" v-model="factor2Preference" /> Low
+            <label v-if="factor2 != 'None'"><input type="radio" name="preference2" value="-high" v-model="factor2Preference" checked/> High </label>
+            <label v-if="factor2 != 'None'"><input type="radio" name="preference2" value="-low" v-model="factor2Preference" /> Low </label>
         <br>
         </div>
 
@@ -59,8 +59,8 @@
             <option value="Sugar">Sugar</option>
             <option value="None" selected>None</option>
         </select>
-        <input type="radio" name="preference3" value="-high" v-model="factor3Preference" checked/> High
-        <input type="radio" name="preference3" value="-low" v-model="factor3Preference" /> Low
+        <label v-if="factor3 != 'None'"><input type="radio" name="preference3" value="-high" v-model="factor3Preference" checked/> High </label>
+        <label v-if="factor3 != 'None'"><input type="radio" name="preference3" value="-low" v-model="factor3Preference" /> Low </label>
         <br>
         </div>
 
