@@ -39,6 +39,8 @@
             <option value="Fibre">Fibre</option>
             <option value="Sodium">Sodium</option>
             <option value="Sugar">Sugar</option>
+            <option value="None" selected>None</option>
+
         </select>
         <input type="radio" name="preference2" value="-high" v-model="factor2Preference" checked/> High
         <input type="radio" name="preference2" value="-low" v-model="factor2Preference" /> Low
@@ -55,6 +57,7 @@
             <option value="Fibre">Fibre</option>
             <option value="Sodium">Sodium</option>
             <option value="Sugar">Sugar</option>
+            <option value="None" selected>None</option>
         </select>
         <input type="radio" name="preference3" value="-high" v-model="factor3Preference" checked/> High
         <input type="radio" name="preference3" value="-low" v-model="factor3Preference" /> Low
@@ -75,21 +78,16 @@
         name: 'AddProfile',
         data(){
             return{
+                name:'',
                 factor1:'',
-                factor2:'',
-                factor3:'',
+                factor2:'None',
+                factor3:'None',
                 factor1Preference:'-high',
                 factor2Preference:'-high',
                 factor3Preference:'-high',
             }
         },
         methods:{
-            append3(value) {
-                this.factor3 = this.factor3.concat(value);
-            },
-            append1(value) {
-                this.factor1 = this.factor1.concat(value);
-            },
             // When the 'Create Profile' button is clicked
             onSubmit(e){
                 e.preventDefault()
@@ -114,14 +112,23 @@
                     alert('Please rank your 3rd highest nutritional metric priority')
                     return
                 }
-                if(this.factor1 == this.factor2 || this.factor1 == this.factor3 || this.factor2 == this.factor3) {
+                if(this.factor1 == this.factor2 || this.factor1 == this.factor3 || (this.factor2 == this.factor3 && this.factor2 != "None")) {
                     alert('Matching factor names')
                     return
+                }
+                if(this.factor1 == "None") {
+                    this.factor1Preference = '';
+                }
+                if(this.factor2 == "None") {
+                    this.factor2Preference = '';
+                }
+                if(this.factor3 == "None") {
+                    this.factor3Preference = '';
                 }
                 // 'save' the data that the user inputs
                 // Randomize the id number
                 const newProfile = {
-                    id: Math.floor(Math.random() * 100000),
+                    // id: Math.floor(Math.random() * 100000),
                     name: this.name,
                     factor1: this.factor1.concat(this.factor1Preference),
                     factor2: this.factor2.concat(this.factor2Preference),
@@ -132,9 +139,10 @@
                 this.$emit('add-profile', newProfile)
 
                 // initialize the fields back to empty to take in new data
+                this.name = ''
                 this.factor1 = ''
-                this.factor2 = ''
-                this.factor3 = ''
+                this.factor2 = 'None'
+                this.factor3 = 'None'
                 this.factor1Preference = '-high'
                 this.factor2Preference = '-high'
                 this.factor3Preference = '-high'

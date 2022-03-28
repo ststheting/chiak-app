@@ -20,14 +20,19 @@ class PresetService {
     addProfile = async (profile) => {
         return axios
         .post(`http://localhost:8080/users/${UserService.getCurrentUser().id}/presets`, profile)
+        .then((response) => {
+            return response.data.id;
+        })
         .catch((err) => {
             console.log(err);
             throw err;
         });
     }
     deleteProfile = async(id) => {
+        console.log(id)
+        console.log(UserService.getCurrentUser().id)
         return axios
-        .delete(`http://localhost:8080/users/${UserService.getCurrentUser().id}/presets/${id}`, id)
+        .delete(`http://localhost:8080/users/${UserService.getCurrentUser().id}/presets/${id}`)
         .catch((err) => {
             console.log(err);
             throw err;

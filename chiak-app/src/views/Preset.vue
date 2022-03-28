@@ -55,8 +55,9 @@ export default {
                 console.log("failed");
             } else {
                 this.profiles = JSON.parse(localStorage.getItem("presets"));
-                this.selected = this.profiles[0];
-                localStorage.setItem("presettemp", JSON.stringify(this.selected))
+                if(this.profiles.length > 0)
+                    this.selected = JSON.parse(localStorage.getItem("presettemp"))
+                // localStorage.setItem("presettemp", JSON.stringify(this.selected))
                 console.log("success");
             }
         })
@@ -75,8 +76,16 @@ export default {
         // set the profiles as an array and spread across the current profiles, then add a new one onto it
         // the new profile comes from the AddProfile component
         addProfile(profile){
-            this.profiles = [...this.profiles, profile]
+            console.log(profile)
             PresetService.addProfile(profile)
+            .then((res) => {
+                profile.id = res
+                this.profiles = [...this.profiles, profile]
+                if(this.profiles.length === 1){
+                    this.selected = this.profiles[0]
+                    localStorage.setItem("presettemp", JSON.stringify(this.selected))
+                }
+            })
         },
 
         // pass in the id of the profile that we want to delete. Keep the profile.id that are NOT equal to the id passed in 
@@ -85,7 +94,9 @@ export default {
             // confirm delete
             if(confirm('You are about to delete this profile, are you sure?')){
                 PresetService.deleteProfile(id)
-                this.profiles = this.profiles.filter((profile) => profile.id !== id)
+                .then(() => {
+                    this.profiles = this.profiles.filter((profile) => profile.id !== id)
+                })
             }
         },
 
@@ -93,6 +104,7 @@ export default {
         // all the profiles to find the matching profile and change its initial select boolean value to the opposite
         toggleSelect(id){
             this.selected = this.profiles.find(profile => profile.id === id)
+            // localStorge.setItem("selected", JSON.stringify(this.selected))
             console.log(this.selected)
             localStorage.setItem("presettemp", JSON.stringify(this.selected))
         }
