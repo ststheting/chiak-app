@@ -17,59 +17,48 @@
         <div class="form-control">
         <label>Rank 1 Nutritional Metric:</label>
         <select class="rounded-md p-1 border-2 mt-3" v-model="factor1">
-            <option value="Price-Low">Price-Low</option>
-            <option value="Price-High">Price-High</option>
-            <option value="Protein-Low">Protein-Low</option>
-            <option value="Protein-High">Protein-High</option>
-            <option value="Fats-Low">Fats-Low</option>
-            <option value="Fats-High">Fats-High</option>
-            <option value="Fibre-Low">Fibre-Low</option>
-            <option value="Fibre-High">Fibre-High</option>
-            <option value="Sodium-Low">Sodium-Low</option>
-            <option value="Sodium-High">Sodium-High</option>
-            <option value="Sugar-Low">Sugar-Low</option>
-            <option value="Sugar-High">Sugar-High</option>
+            <option value="Price" >Price</option>
+            <option value="Protein" >Protein</option>
+            <option value="Fat">Fats</option>
+            <option value="Fibre">Fibre</option>
+            <option value="Sodium">Sodium</option>
+            <option value="Sugar">Sugar</option>
         </select>
+        <input type="radio" name="preference1" value="-high" v-model="factor1Preference" checked/> High
+        <input type="radio" name="preference1" value="-low" v-model="factor1Preference" /> Low
+        <br>
         </div>
 
         <!-- Rank 2 dropdown -->
         <div class="form-control">
         <label>Rank 2 Nutritional Metric:</label>
         <select class="rounded-md p-1 border-2 mt-3" v-model="factor2">
-            <option value="Price-Low">Price-Low</option>
-            <option value="Price-High">Price-High</option>
-            <option value="Protein-Low">Protein-Low</option>
-            <option value="Protein-High">Protein-High</option>
-            <option value="Fats-Low">Fats-Low</option>
-            <option value="Fats-High">Fats-High</option>
-            <option value="Fibre-Low">Fibre-Low</option>
-            <option value="Fibre-High">Fibre-High</option>
-            <option value="Sodium-Low">Sodium-Low</option>
-            <option value="Sodium-High">Sodium-High</option>
-            <option value="Sugar-Low">Sugar-Low</option>
-            <option value="Sugar-High">Sugar-High</option>
-            <option value="None" selected="selected">None</option>
+            <option value="Price">Price</option>
+            <option value="Protein">Protein</option>
+            <option value="Fat">Fats</option>
+            <option value="Fibre">Fibre</option>
+            <option value="Sodium">Sodium</option>
+            <option value="Sugar">Sugar</option>
         </select>
+        <input type="radio" name="preference2" value="-high" v-model="factor2Preference" checked/> High
+        <input type="radio" name="preference2" value="-low" v-model="factor2Preference" /> Low
+        <br>
         </div>
 
         <!-- Rank 3 dropdown -->
         <div class="form-control">
         <label>Rank 3 Nutritional Metric:</label>
         <select class="rounded-md p-1 border-2 mt-3" v-model="factor3">
-            <option value="Price-Low">Price-Low</option>
-            <option value="Price-High">Price-High</option>
-            <option value="Protein-Low">Protein-Low</option>
-            <option value="Protein-High">Protein-High</option>
-            <option value="Fats-Low">Fats-Low</option>
-            <option value="Fats-High">Fats-High</option>
-            <option value="Fibre-Low">Fibre-Low</option>
-            <option value="Fibre-High">Fibre-High</option>
-            <option value="Sodium-Low">Sodium-Low</option>
-            <option value="Sodium-High">Sodium-High</option>
-            <option value="Sugar-Low">Sugar-Low</option>
-            <option value="Sugar-High">Sugar-High</option>
-            <option value="None">None</option>
+            <option value="Price">Price</option>
+            <option value="Protein">Protein</option>
+            <option value="Fat">Fats</option>
+            <option value="Fibre">Fibre</option>
+            <option value="Sodium">Sodium</option>
+            <option value="Sugar">Sugar</option>
         </select>
+        <input type="radio" name="preference3" value="-high" v-model="factor3Preference" checked/> High
+        <input type="radio" name="preference3" value="-low" v-model="factor3Preference" /> Low
+        <br>
         </div>
 
         <!-- <div class="form-control form-control-check">
@@ -86,13 +75,21 @@
         name: 'AddProfile',
         data(){
             return{
-                name:'',
                 factor1:'',
-                factor2:'None',
-                factor3:'None',
+                factor2:'',
+                factor3:'',
+                factor1Preference:'-high',
+                factor2Preference:'-high',
+                factor3Preference:'-high',
             }
         },
         methods:{
+            append3(value) {
+                this.factor3 = this.factor3.concat(value);
+            },
+            append1(value) {
+                this.factor1 = this.factor1.concat(value);
+            },
             // When the 'Create Profile' button is clicked
             onSubmit(e){
                 e.preventDefault()
@@ -117,25 +114,30 @@
                     alert('Please rank your 3rd highest nutritional metric priority')
                     return
                 }
-
+                if(this.factor1 == this.factor2 || this.factor1 == this.factor3 || this.factor2 == this.factor3) {
+                    alert('Matching factor names')
+                    return
+                }
                 // 'save' the data that the user inputs
                 // Randomize the id number
                 const newProfile = {
                     id: Math.floor(Math.random() * 100000),
                     name: this.name,
-                    factor1: this.factor1,
-                    factor2: this.factor2,
-                    factor3: this.factor3,
+                    factor1: this.factor1.concat(this.factor1Preference),
+                    factor2: this.factor2.concat(this.factor2Preference),
+                    factor3: this.factor3.concat(this.factor3Preference),
                 }
 
                 // send the custom user input to the parent by providing the event name to add a profile and the data that the user inputs
                 this.$emit('add-profile', newProfile)
 
                 // initialize the fields back to empty to take in new data
-                this.name = ''
                 this.factor1 = ''
-                this.factor2 = 'None'
-                this.factor3 = 'None'
+                this.factor2 = ''
+                this.factor3 = ''
+                this.factor1Preference = '-high'
+                this.factor2Preference = '-high'
+                this.factor3Preference = '-high'
             }
         }
     }
