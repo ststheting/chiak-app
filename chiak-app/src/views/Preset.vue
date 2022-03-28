@@ -70,8 +70,11 @@ export default {
         if (this.profiles.length > 0)
           if (localStorage.getItem("presettemp") != null)
             this.selected = JSON.parse(localStorage.getItem("presettemp"));
-          else this.selected = this.profiles[0];
-        localStorage.setItem("presettemp", JSON.stringify(this.selected));
+          else {
+            this.selected = this.profiles[0]
+            localStorage.setItem("presettemp", JSON.stringify(this.selected));
+          }
+        
         //upon first login, there is no presettemp to consider
         // localStorage.setItem("presettemp", JSON.stringify(this.selected))
         console.log("success");
