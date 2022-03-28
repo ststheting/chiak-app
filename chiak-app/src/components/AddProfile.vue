@@ -21,8 +21,8 @@
             <option value="Price-High">Price-High</option>
             <option value="Protein-Low">Protein-Low</option>
             <option value="Protein-High">Protein-High</option>
-            <option value="Fats-Low">Fats-Low</option>
-            <option value="Fats-High">Fats-High</option>
+            <option value="Fat-Low">Fats-Low</option>
+            <option value="Fat-High">Fats-High</option>
             <option value="Fibre-Low">Fibre-Low</option>
             <option value="Fibre-High">Fibre-High</option>
             <option value="Sodium-Low">Sodium-Low</option>
@@ -40,8 +40,8 @@
             <option value="Price-High">Price-High</option>
             <option value="Protein-Low">Protein-Low</option>
             <option value="Protein-High">Protein-High</option>
-            <option value="Fats-Low">Fats-Low</option>
-            <option value="Fats-High">Fats-High</option>
+            <option value="Fat-Low">Fats-Low</option>
+            <option value="Fat-High">Fats-High</option>
             <option value="Fibre-Low">Fibre-Low</option>
             <option value="Fibre-High">Fibre-High</option>
             <option value="Sodium-Low">Sodium-Low</option>
@@ -60,8 +60,8 @@
             <option value="Price-High">Price-High</option>
             <option value="Protein-Low">Protein-Low</option>
             <option value="Protein-High">Protein-High</option>
-            <option value="Fats-Low">Fats-Low</option>
-            <option value="Fats-High">Fats-High</option>
+            <option value="Fat-Low">Fats-Low</option>
+            <option value="Fat-High">Fats-High</option>
             <option value="Fibre-Low">Fibre-Low</option>
             <option value="Fibre-High">Fibre-High</option>
             <option value="Sodium-Low">Sodium-Low</option>
@@ -121,7 +121,7 @@
                 // 'save' the data that the user inputs
                 // Randomize the id number
                 const newProfile = {
-                    id: Math.floor(Math.random() * 100000),
+                    // id: Math.floor(Math.random() * 100000),
                     name: this.name,
                     factor1: this.factor1,
                     factor2: this.factor2,
