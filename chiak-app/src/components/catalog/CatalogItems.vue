@@ -1,7 +1,7 @@
 <template>
     <div class="overflow-y-scroll max-h-screen mr-10 px-10 ">
-        <div :key="item.id" v-for="item in items">
-            <CatalogItem @select-item="$emit('select-item', item.id)" :item="item" />
+        <div :key="item.id" v-for="(item, index) in items">
+            <CatalogItem @select-item="$emit('select-item', item.id)" :item="item" :index="index"/>
         </div>
     </div>
 </template>
@@ -18,7 +18,11 @@ export default {
         CatalogItem
     },
     emits: ['select-item'],
-    
+    data() {
+        return {
+            isFirst: true
+        }
+    }
 }
 </script>
 

@@ -72,6 +72,7 @@ export default {
                         UserService.registerUser(this.input)
                         .then((res) => {
                             if(res == "failed"){
+                                alert("Email already exists, please try again.")
                                 console.log("Register failed")
                             } else {
                                 console.log("Register success")
@@ -80,10 +81,10 @@ export default {
                         })
                         
                     } else {
-                        console.log("Password and Confirm Password do not match")
+                        alert("Passwords do not match, please try again.")
                     }
                 } else {
-                    console.log("A username and password must be present")
+                    alert("A username and password must be present, please try again.")
                 }
             } catch (error){
             }

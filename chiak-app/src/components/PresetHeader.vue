@@ -1,4 +1,5 @@
 <template>
+    <div>
     <header>
         <!-- title for the parent component to declare -->
         <h1 class="text-2xl">Your Profiles</h1>
@@ -7,7 +8,8 @@
         :text="showAddProfile ? 'Close' : 'Add Profile'" 
         :color="showAddProfile ? 'red' : 'green'" />
     </header>
-    <h2 class="mb-5"><em>Please select only <b>ONE</b> profile as your preset</em></h2>
+    <h2 class="text-sm mb-8">Let's start by selecting a profile as your preset.</h2>
+    </div>
 </template>
 
 <script>
@@ -33,6 +35,7 @@ export default {
 </script>
 
 <style scoped>
+
     header{
         display: flex;
         justify-content: space-between;

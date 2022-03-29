@@ -1,5 +1,5 @@
 <template>
-    <form @submit="onSubmit" class="mb-10 border-4 px-10 pb-10 rounded-lg">
+    <form @submit="onSubmit" class="mb-10 border-2 px-10 pt-3 pb-10 rounded-lg">
 
         <!--Profile input label  -->
         <div class="form-control">
@@ -16,52 +16,63 @@
         <!-- Rank 1 dropdown -->
         <div class="form-control">
         <label>Rank 1 Nutritional Metric:</label>
-        <select class="rounded-md p-1 border-2 mt-3" v-model="factor1">
-            <option value="Price" >Price</option>
-            <option value="Protein" >Protein</option>
-            <option value="Fat">Fats</option>
-            <option value="Fibre">Fibre</option>
-            <option value="Sodium">Sodium</option>
-            <option value="Sugar">Sugar</option>
-        </select>
-        <label v-if="factor1 != ''"><input type="radio" name="preference1" value="-high" v-model="factor1Preference" checked/> High </label>
-        <label v-if="factor1 != ''"><input type="radio" name="preference1" value="-low" v-model="factor1Preference" /> Low </label>
-        <br>
+        <div class="flex items-center mt-3">
+            <select class="rounded-md p-1 border-2" v-model="factor1">
+                <option value="Price" >Price</option>
+                <option value="Calories" >Calories</option>
+                <option value="Protein" >Protein</option>
+                <option value="Fat">Fats</option>
+                <option value="Fibre">Fibre</option>
+                <option value="Sodium">Sodium</option>
+                <option value="Sugar">Sugar</option>
+            </select>
+            <div class="ml-3">
+                <label class="text-sm" v-if="factor1 != ''"><input type="radio" name="preference1" value="-High" v-model="factor1Preference" checked/> High </label>
+                <label class="text-sm" v-if="factor1 != ''"><input type="radio" name="preference1" value="-Low" v-model="factor1Preference" /> Low </label>
+            </div>
+        </div>
         </div>
 
         <!-- Rank 2 dropdown -->
         <div class="form-control">
         <label>Rank 2 Nutritional Metric:</label>
-        <select class="rounded-md p-1 border-2 mt-3" v-model="factor2">
-            <option value="Price">Price</option>
-            <option value="Protein">Protein</option>
-            <option value="Fat">Fats</option>
-            <option value="Fibre">Fibre</option>
-            <option value="Sodium">Sodium</option>
-            <option value="Sugar">Sugar</option>
-            <option value="None" selected>None</option>
-
-        </select>
-            <label v-if="factor2 != 'None'"><input type="radio" name="preference2" value="-high" v-model="factor2Preference" checked/> High </label>
-            <label v-if="factor2 != 'None'"><input type="radio" name="preference2" value="-low" v-model="factor2Preference" /> Low </label>
-        <br>
+            <div class="flex items-center mt-3">
+                <select class="rounded-md p-1 border-2" v-model="factor2">
+                    <option value="Price">Price</option>
+                    <option value="Calories" >Calories</option>
+                    <option value="Protein">Protein</option>
+                    <option value="Fat">Fats</option>
+                    <option value="Fibre">Fibre</option>
+                    <option value="Sodium">Sodium</option>
+                    <option value="Sugar">Sugar</option>
+                    <option value="None" selected>None</option>
+                </select>
+                <div class="ml-3">
+                    <label class="text-sm" v-if="factor2 != 'None'"><input type="radio" name="preference2" value="-High" v-model="factor2Preference" checked/> High </label>
+                    <label class="text-sm" v-if="factor2 != 'None'"><input type="radio" name="preference2" value="-Low" v-model="factor2Preference" /> Low </label>
+                </div>
+            </div>
         </div>
 
         <!-- Rank 3 dropdown -->
         <div class="form-control">
         <label>Rank 3 Nutritional Metric:</label>
-        <select class="rounded-md p-1 border-2 mt-3" v-model="factor3">
-            <option value="Price">Price</option>
-            <option value="Protein">Protein</option>
-            <option value="Fat">Fats</option>
-            <option value="Fibre">Fibre</option>
-            <option value="Sodium">Sodium</option>
-            <option value="Sugar">Sugar</option>
-            <option value="None" selected>None</option>
-        </select>
-        <label v-if="factor3 != 'None'"><input type="radio" name="preference3" value="-high" v-model="factor3Preference" checked/> High </label>
-        <label v-if="factor3 != 'None'"><input type="radio" name="preference3" value="-low" v-model="factor3Preference" /> Low </label>
-        <br>
+            <div class="flex items-center mt-3">
+                <select class="rounded-md p-1 border-2" v-model="factor3">
+                    <option value="Price">Price</option>
+                    <option value="Calories" >Calories</option>
+                    <option value="Protein">Protein</option>
+                    <option value="Fat">Fats</option>
+                    <option value="Fibre">Fibre</option>
+                    <option value="Sodium">Sodium</option>
+                    <option value="Sugar">Sugar</option>
+                    <option value="None" selected>None</option>
+                </select>
+                <div  class="ml-3">
+                    <label class="text-sm" v-if="factor3 != 'None'"><input type="radio" name="preference3" value="-High" v-model="factor3Preference" checked/> High </label>
+                    <label class="text-sm" v-if="factor3 != 'None'"><input type="radio" name="preference3" value="-Low" v-model="factor3Preference" /> Low </label>
+                </div>
+            </div>
         </div>
 
         <!-- <div class="form-control form-control-check">
@@ -82,9 +93,9 @@
                 factor1:'',
                 factor2:'None',
                 factor3:'None',
-                factor1Preference:'-high',
-                factor2Preference:'-high',
-                factor3Preference:'-high',
+                factor1Preference:'-High',
+                factor2Preference:'-High',
+                factor3Preference:'-High',
             }
         },
         methods:{
@@ -143,9 +154,9 @@
                 this.factor1 = ''
                 this.factor2 = 'None'
                 this.factor3 = 'None'
-                this.factor1Preference = '-high'
-                this.factor2Preference = '-high'
-                this.factor3Preference = '-high'
+                this.factor1Preference = '-High'
+                this.factor2Preference = '-High'
+                this.factor3Preference = '-High'
             }
         }
     }
@@ -153,6 +164,10 @@
 
 // styles for the add profile form
 <style scoped>
+input, select, option{
+    color:black
+}
+
 .form-control {
   margin: 20px 0;
 }

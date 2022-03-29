@@ -1,7 +1,7 @@
 <template>
   <div class="p-10">
-    <h1 class="text-4xl mt-2 mb-12">{{ item.name }}</h1>
-    <h1 class="text-4xl mt-2 mb-12">{{ item.brand }}</h1>
+    <h1 class="text-3xl mt-2 mb-4">{{ item.name }}</h1>
+    <h1 class="text-lg mb-12">{{ item.brand }}</h1>
     <img class="border-2 my-8" :src="item.imgUrl" width="300" height="300" />
     <div class="flex">
       <h2 class="mb-8 text-lg">Price: ${{ item.price }}</h2>
@@ -55,7 +55,14 @@ export default {
   methods: {
     addItem(item) {
       //POST req to backend
-      CatalogService.addProduct(item);
+      CatalogService.addProduct(item)
+      .then((res) => {
+        if(res == "failed"){
+          alert("Item already added, please try again")
+        } else {
+          alert("Successfully added to your Shopping List")
+        }
+      })
     },
   },
 };

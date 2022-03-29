@@ -67,6 +67,7 @@ export default {
                     UserService.authenticate(this.input)
                     .then((res) => {
                         if(res == "failed"){
+                            alert("Incorrect username/password. Please try again.")
                             console.log("Login failed")
                         } else {
                             console.log("Login success")
@@ -74,7 +75,7 @@ export default {
                         }
                     })
                 } else {
-                    console.log("A username and password must be present");
+                    console.log("A username and password must be present. Please try again.");
                 }
             } catch (error){
 

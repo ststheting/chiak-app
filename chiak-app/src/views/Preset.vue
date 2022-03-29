@@ -1,22 +1,22 @@
 <template>
-  <div>
+  <div class="bg-homepage bg-cover bg-fixed min-h-screen h-full">
     <Nav />
     <!-- self-defined class to implement styling -->
-    <div class="container m-10 mx-auto">
-      <div class="text-3xl font-semibold text-center">
-        Welcome back to <span class="text-green-600">Chiak!</span>
+    <div class="container pb-10 mt-10 mx-auto">
+      <div class="animate__animated animate__zoomIn text-4xl font-semibold text-center text-white">
+        Welcome Back To <span class="font-bold text-green-500">Chiak!</span>
       </div>
       <!-- id is for the styling of the PresetHeader -->
       <!-- catch the toggle-add-profile emit from the PresetHeader, then call the toggleAddProfile method -->
       <!-- use v-bind to pass in the boolean value of showAddProfile -->
-      <div class="border-2 rounded-md mt-8 p-10 px-20 mx-48">
+      <div class="bg-lime-50 border-2 rounded-md mt-10 p-10 px-20 mx-48">
         <PresetHeader
           id="presetHeader"
           @toggle-add-profile="toggleAddProfile"
           :showAddProfile="showAddProfile"
         />
         <!-- this is for toggling the AddProfile form. v-show to show the form -->
-        <div v-show="showAddProfile">
+        <div class="bg-white" v-show="showAddProfile">
           <!-- Catch the add-profile emit and call the addProfile method to add a new profile -->
           <AddProfile @add-profile="addProfile" />
         </div>
@@ -113,6 +113,13 @@ export default {
       if (confirm("You are about to delete this profile, are you sure?")) {
         PresetService.deleteProfile(id).then(() => {
           this.profiles = this.profiles.filter((profile) => profile.id !== id);
+          //account for when profile is deleted
+          if (this.profiles.length > 0 && this.selected.id === id) {
+            this.selected = this.profiles[0];
+            localStorage.setItem("presettemp", JSON.stringify(this.selected));
+          } else if (this.selected.id === id){
+            localStorage.removeItem("presettemp")
+          }
         });
       }
     },

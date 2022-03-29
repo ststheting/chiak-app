@@ -59,10 +59,9 @@ export default {
     search(){
       // variable to store input
       // preset to be sent as well
-      if(this.searchinput !== ""){
+      if(this.searchinput !== ""){ //currently i get error because im passing in a string with empty preset
         CatalogService.searchWithPreset(JSON.parse(localStorage.getItem("presettemp")), this.searchinput)
         .then((res) => {
-          console.log(this.$route.path)
           if(this.$route.path == '/catalog'){
             this.$router.go()
           } else {
@@ -70,9 +69,8 @@ export default {
           }
         })
       } else {
-        CatalogService.getProducts()
+        CatalogService.getProducts() //can backend receive a preset with empty searchinput? what abt no preset?
         .then((res) => {
-          console.log(this.$route.path)
           if(this.$route.path == '/catalog'){
             this.$router.go()
           } else {

@@ -32,5 +32,11 @@ export default {
 </template>
 
 <style>
-
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@400&family=Roboto:wght@300;400&display=swap');
+@import url("https://cdn.jsdelivr.net/npm/@xz/fonts@1/serve/hk-grotesk.min.css");
+*  {
+  /* font-family: 'HK Grotesk', sans-serif; */
+  /* font-family: 'Open Sans', sans-serif */
+  font-family: 'Roboto', sans-serif
+}
 </style>

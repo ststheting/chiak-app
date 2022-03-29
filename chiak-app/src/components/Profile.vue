@@ -1,11 +1,11 @@
 <template>
 <!-- emit the toggle-select event and profile.id to the parent component upon click -->
 <!-- ternary for the select class. If true, then we add a class called select, else do nothing -->
-    <div class="px-10 py-5 pr-16" @toggle-select="$emit('toggle-select', profile.id)"
+    <div class="px-10 py-6 pr-16 my-3 bg-white" @toggle-select="$emit('toggle-select', profile.id)"
     :class="[profile.id == selected.id ? 'select' : '', 'profile flex mx-auto justify-between items-center']">
     <!-- information of the data fields -->
         <div>
-            <p class="text-2xl mb-3">{{profile.name }}</p>
+            <p class="text-xl font-semibold mb-3">{{profile.name }}</p>
             <p>1: {{profile.factor1}}</p>
             <p>2: {{profile.factor2}}</p>
             <p>3: {{profile.factor3}}</p>
@@ -34,19 +34,22 @@ export default{
 </script>
 
 <style scope>
+
+
 .fas{
     color:red;
 }
 
 .profile{
-    background: #f4f4f4;
+    border-width: 1px;
     margin: 5px;
     padding: 10px 20px;
+    color:black
 }
 
 /* have a green border if profile is selected */
 .profile.select{
-    border-left: 5px solid green;
+    border-left: 6px solid green;
 }
 
 .profile h3 {
