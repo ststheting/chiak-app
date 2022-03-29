@@ -1,7 +1,7 @@
 // For the main Presets page to pass data into so that we can render the details on the browser page
 <template>
     <div class="bg-lime-50">
-        <div class="text-center py-5" v-if="this.profiles.length === 0">You don't have any profiles. Start by adding one!</div>
+        <div class="bg-white text-center py-5" v-if="this.profiles.length === 0">You don't have any profiles. Start by adding one!</div>
         <!-- loop through the profiles array to output a single profile component -->
         <div :key="profile.id" v-for="profile in profiles">
             <!-- catch the toggle-select emit from Profile child component and emit this event to the Preset parent component. Same for toggle-select -->
