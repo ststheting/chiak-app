@@ -49,5 +49,17 @@ class CatalogService {
             throw err;
         })
     }
+
+    searchWithNoPreset = async(search) => {
+        return axios
+        .post(`http://localhost:8080/products/${search}/getReco/`, {})
+        .then((response) => {
+            console.log(response.data)
+            localStorage.setItem("catalog", JSON.stringify(response.data));
+        })
+        .catch((err) => {
+            throw err;
+        })
+    }
 }
 export default new CatalogService();
