@@ -43,6 +43,9 @@
            <div>
           <b>Fibre</b>: {{ item.fibre }} g
            </div>
+           <div>
+          <b>Serving size</b>: {{ item.servingSize }} 
+           </div>
         </div>
       </div>
       <div>
