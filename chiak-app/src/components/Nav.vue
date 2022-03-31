@@ -59,7 +59,7 @@ export default {
     search(){
       // variable to store input
       // preset to be sent as well
-      if(this.searchinput !== ""){ //currently i get error because im passing in a string with empty preset
+      if(this.searchinput !== ""){
         if(localStorage.getItem("presettemp") != null){
           CatalogService.searchWithPreset(JSON.parse(localStorage.getItem("presettemp")), this.searchinput)
           .then((res) => {

@@ -1,5 +1,5 @@
 <template>
-    <div class="border-2">
+    <div class="border-2 bg-white">
         <div @click="select(item.id)" class="px-6 flex items-center justify-between mx-auto itemlist" text="Select Item">
             <div>
                 <h1 class="text-lg mb-3"> {{ item.name }} </h1>

@@ -1,5 +1,5 @@
 <template>
-    <div class="overflow-y-scroll max-h-screen px-10 ml-10 ">
+    <div class="overflow-y-scroll max-h-screen pl-20 bg-lime-50 ">
         <div :key="item.id" v-for="(item, index) in items">
             <CatalogItem @select-item="$emit('select-item', item.id)" :item="item" :index="index"/>
         </div>

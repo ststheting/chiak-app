@@ -16,9 +16,10 @@
         <img :src="item.imgUrl" width="200" height="200" />
       </div>
       <div class="ml-4">
-        <h1 class="text-2xl mb-4">{{ item.name }}</h1>
-        <p class="text-md"><b>Brand</b>: {{ item.brand }}</p>
-        <p class="text-md"><b>Price</b>: S${{ item.price }}</p>
+        <h1 class="text-2xl mb-2">{{ item.name }}</h1>
+        <p class="text-lg mb-4">{{ item.brand }}</p>
+        <p class="text-md"><b>Serving Size</b>: {{ item.servingSize }}</p>
+        <p class="text-md"><b>Price</b>: S${{ Number(item.price).toFixed(2) }}</p>
       </div>
     </div>
     <div class="flex justify-between items-center">
@@ -42,9 +43,6 @@
            </div>
            <div>
           <b>Fibre</b>: {{ item.fibre }} g
-           </div>
-           <div>
-          <b>Serving size</b>: {{ item.servingSize }} 
            </div>
         </div>
       </div>

@@ -46,6 +46,7 @@ class CatalogService {
             localStorage.setItem("catalog", JSON.stringify(response.data));
         })
         .catch((err) => {
+            console.log(preset)
             throw err;
         })
     }

@@ -1,16 +1,16 @@
 <template>
-<div class="col-span-2 flex ml-10">
+<div class="bg-lime-50 col-span-2 flex pl-20">
   <div class="p-10">
     <h1 class="text-3xl mt-2 mb-4">{{ item.name }}</h1>
-    <h1 class="text-lg mb-12">{{ item.brand }}</h1>
+    <h1 class="text-xl mb-12">{{ item.brand }}</h1>
     <img class="border-2 my-8" :src="item.imgUrl" width="300" height="300" />
     <div class="flex">
-      <h2 class="mb-8 text-lg">Price: ${{ item.price }}</h2>
-      <h2 class="ml-20">Serving Size: 100g</h2>
+      <h2 class="mb-8 text-lg">Price: ${{ Number(item.price).toFixed(2) }}</h2>
+      <h2 class="ml-20">Serving Size: {{ item.servingSize }}</h2>
     </div>
   </div>
-  <div class="ml-32">
-    <div class="mt-16 p-6 border-4 mb-10">
+  <div class="ml-48">
+    <div class="mt-16 p-6 border-2 border-green-600 mb-10">
       <h3 class="text-xl mb-5"><b>Nutrional Facts: </b></h3>
       <div class="">
          <div>
@@ -30,9 +30,6 @@
         </div>
          <div>
         <b>Fibre</b>: {{ item.fibre }} g
-        </div>
-        <div>
-        <b>Serving size</b>: {{ item.servingSize }} 
         </div>
       </div>
     </div>
