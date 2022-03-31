@@ -55,7 +55,8 @@ export default {
         }
     },
     mounted(){
-        localStorage.removeItem("user");
+        sessionStorage.removeItem("user");
+        localStorage.clear();
     },
     methods: {
         login(){

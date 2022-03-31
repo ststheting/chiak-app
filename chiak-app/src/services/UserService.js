@@ -9,6 +9,7 @@ class UserService {
             .post(REGISTER_API_URL, user)
             .then((response) => {
                 localStorage.clear();
+                sessionStorage.clear();
                 // localStorage.setItem("tempPass", user.password);
                 // localStorage.setItem("user", JSON.stringify(response.data));
                 // localStorage.setItem("notLoggedIn", "")
@@ -28,7 +29,7 @@ class UserService {
         return axios
             .post(AUTH_API_URL, user)
             .then((response) => {
-                localStorage.setItem("user", JSON.stringify(response.data));
+                sessionStorage.setItem("user", JSON.stringify(response.data));
                 // console.log(localStorage.getItem("user"));
                 // return response.data;
             })
@@ -43,16 +44,16 @@ class UserService {
         // localStorage.clear();
         // localStorage.removeItem("notLoggedIn")
         // localStorage.removeItem("tempPass")
-        localStorage.removeItem("user");
+        sessionStorage.removeItem("user");
     }
 
     getCurrentUser() {
-        return JSON.parse(localStorage.getItem("user"));
+        return JSON.parse(sessionStorage.getItem("user"));
     }
 
     isLoggedIn() {
         // if (localStorage.getItem("user") === null || localStorage.getItem("notLoggedIn") == "") {
-        if (localStorage.getItem("user") === null) {
+        if (sessionStorage.getItem("user") === null) {
             return false;
         }
         return true;
