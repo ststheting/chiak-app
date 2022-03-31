@@ -32,7 +32,7 @@
           <b>Sugar</b>: {{ item.sugar }} g 
            </div>
            <div>
-          <b>Total Fat</b>: {{ item.fats }} g 
+          <b>Total Fat</b>: {{ item.fat }} g 
            </div>
            <div>
           <b>Protein</b>: {{ item.protein }} mg 

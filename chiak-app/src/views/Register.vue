@@ -72,7 +72,7 @@ export default {
                         UserService.registerUser(this.input)
                         .then((res) => {
                             if(res == "failed"){
-                                alert("Email already exists, please try again.")
+                                alert("Registration failed, please try again.")
                                 console.log("Register failed")
                             } else {
                                 console.log("Register success")

@@ -1,4 +1,5 @@
 <template>
+<div class="col-span-2 flex ml-10">
   <div class="p-10">
     <h1 class="text-3xl mt-2 mb-4">{{ item.name }}</h1>
     <h1 class="text-lg mb-12">{{ item.brand }}</h1>
@@ -8,10 +9,10 @@
       <h2 class="ml-20">Serving Size: 100g</h2>
     </div>
   </div>
-  <div class="ml-10">
-    <div class="mt-16">
+  <div class="ml-32">
+    <div class="mt-16 p-6 border-4 mb-10">
       <h3 class="text-xl mb-5"><b>Nutrional Facts: </b></h3>
-      <div class="mb-16">
+      <div class="">
          <div>
         <b>Calories</b>: {{ item.calories }} kcal 
         </div>
@@ -39,6 +40,7 @@
       Add to Shopping List
     </button>
   </div>
+</div>
 </template>
 
 <script>

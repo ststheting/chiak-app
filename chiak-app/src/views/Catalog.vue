@@ -7,7 +7,7 @@
             
         </div>
         <div v-else class="text-center text-2xl mt-10">
-                <h1>No Items To Display :-( </h1>
+                <h1>No items found, try a different search!</h1>
         </div>
     </div>
 </template>
