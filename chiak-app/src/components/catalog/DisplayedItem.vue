@@ -3,14 +3,14 @@
   <div class="p-10">
     <h1 class="text-3xl mt-2 mb-4">{{ item.name }}</h1>
     <h1 class="text-xl mb-12">{{ item.brand }}</h1>
-    <img class="border-2 my-8" :src="item.imgUrl" width="300" height="300" />
+    <img class="border-2 mb-12" :src="item.imgUrl" width="300" height="300" />
     <div class="flex">
       <h2 class="mb-8 text-lg">Price: ${{ Number(item.price).toFixed(2) }}</h2>
-      <h2 class="ml-20">Serving Size: {{ item.servingSize }}</h2>
+      <h2 class="ml-16 text-lg">Serving Size: {{ item.servingSize }}</h2>
     </div>
   </div>
-  <div class="ml-48">
-    <div class="mt-16 p-6 border-2 border-green-600 mb-10">
+  <div class="absolute mx-auto">
+    <div class="mt-16 p-6 border-2 bg-white mb-10">
       <h3 class="text-xl mb-5"><b>Nutrional Facts: </b></h3>
       <div class="">
          <div>
@@ -69,3 +69,9 @@ export default {
   },
 };
 </script>
+<style>
+  div.absolute {
+    top: 15rem;
+    right: 15rem;
+  }
+</style>

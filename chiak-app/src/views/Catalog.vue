@@ -1,7 +1,7 @@
 <template>
     <div>
         <Nav />
-        <div v-if="this.display" class="grid grid-cols-3 justify-between mx-auto min-h-screen">
+        <div v-if="this.display" class="grid grid-cols-3 justify-between mx-auto">
             <CatalogItems @select-item="selectItem" :items="items" />
             <DisplayedItem :item="selected" />
             
