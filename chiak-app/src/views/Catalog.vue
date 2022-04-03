@@ -2,7 +2,7 @@
     <div>
         <Nav />
         <div v-if="this.display" class="grid grid-cols-3 justify-between mx-auto">
-            <CatalogItems @select-item="selectItem" :items="items" />
+            <CatalogItems @select-item="selectItem" :items="items" :selected="selected"/>
             <DisplayedItem :item="selected" />
             
         </div>

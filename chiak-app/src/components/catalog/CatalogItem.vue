@@ -1,6 +1,7 @@
 <template>
     <div class="border-2 bg-white">
-        <div @click="select(item.id)" class="px-6 flex items-center justify-between mx-auto itemlist" text="Select Item">
+        <div @click="select(item.id)" class="px-6 flex items-center justify-between mx-auto itemlist" text="Select Item"
+        :class="[item.id == selected.id ? 'select' : '', 'item']">
             <div>
                 <h1 class="text-lg mb-3"> {{ item.name }} </h1>
                 <div class="flex justify-between items-center">
@@ -18,7 +19,8 @@ export default {
     name: 'CatalogItem',
     props: {
         item: Object,
-        index: Number
+        index: Number,
+        selected: Object
     },
     methods: {
         select(id) {
@@ -31,5 +33,8 @@ export default {
 <style>
 .itemlist{
     cursor: pointer;
+}
+.item.select{
+    border-left: 6px solid green;
 }
 </style>
