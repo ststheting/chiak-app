@@ -5,7 +5,7 @@
     <h1 class="text-xl mb-12">{{ item.brand }}</h1>
     <img class="border-2 mb-12" :src="item.imgUrl" width="300" height="300" />
     <div class="flex">
-      <h2 class="mb-8 text-lg">Price: ${{ Number(item.price).toFixed(2) }}</h2>
+      <h2 class="text-lg">Price: ${{ Number(item.price).toFixed(2) }}</h2>
       <h2 class="ml-16 text-lg">Serving Size: {{ item.servingSize }}</h2>
     </div>
   </div>
