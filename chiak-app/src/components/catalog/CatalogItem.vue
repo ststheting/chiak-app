@@ -35,6 +35,7 @@ export default {
     cursor: pointer;
 }
 .item.select{
-    border-left: 6px solid green;
+    border-left: 5px solid;
+    border-color: rgb(21 128 61);
 }
 </style>
