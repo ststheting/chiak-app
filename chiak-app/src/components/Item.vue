@@ -16,7 +16,7 @@
         <img :src="item.imgUrl" width="200" height="200" />
       </div>
       <div class="ml-4">
-        <h1 class="text-2xl mb-2">{{ item.name }}</h1>
+        <h1 class="text-2xl mb-2 whitespace-normal">{{ item.name }}</h1>
         <p class="text-lg mb-4">{{ item.brand }}</p>
         <p class="text-md"><b>Serving Size</b>: {{ item.servingSize }}</p>
         <p class="text-md"><b>Price</b>: S${{ Number(item.price).toFixed(2) }}</p>
@@ -70,3 +70,8 @@ export default {
   },
 };
 </script>
+<style>
+h1{
+  max-width: 15rem;
+}
+</style>
