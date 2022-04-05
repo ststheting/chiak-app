@@ -58,7 +58,6 @@ export default {
     },
     methods: {
         test() {
-            console.log(this.items.length)
         },
         clearAll() {
             if (confirm("You are about to clear all items, are you sure?")){
@@ -69,7 +68,6 @@ export default {
             }
         },
         deleteProduct(id) {
-            // console.log('items', id);
             if (confirm("You are about to clear this item, are you sure?")){
                 ShoppingListService.deleteProduct(id)
                 .then (() => {

@@ -10,7 +10,6 @@ class CatalogService {
                 // return response.data;
             })
             .catch((err) => {
-                console.log(err);
                 return "failed"
                 // throw err;
             });
@@ -20,7 +19,6 @@ class CatalogService {
         return axios
         .post(`http://localhost:8080/users/${UserService.getCurrentUser().id}/cart`, item)
         .catch((err) => {
-            console.log(err);
             return "failed";
         });
     }
@@ -32,7 +30,6 @@ class CatalogService {
                 localStorage.setItem("catalog", JSON.stringify(response.data));
             })
             .catch((err) => {
-                console.log(err);
                 throw(err);
             });
     }
@@ -41,12 +38,9 @@ class CatalogService {
         return axios
         .post(`http://localhost:8080/products/${search}/getReco/`, preset)
         .then((response) => {
-            console.log(preset)
-            console.log(response.data)
             localStorage.setItem("catalog", JSON.stringify(response.data));
         })
         .catch((err) => {
-            console.log(preset)
             throw err;
         })
     }
@@ -55,7 +49,6 @@ class CatalogService {
         return axios
         .post(`http://localhost:8080/products/${search}/getReco/`, {})
         .then((response) => {
-            console.log(response.data)
             localStorage.setItem("catalog", JSON.stringify(response.data));
         })
         .catch((err) => {

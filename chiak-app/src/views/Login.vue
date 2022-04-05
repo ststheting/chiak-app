@@ -62,16 +62,13 @@ export default {
         login(){
             try{
                 if(this.input.username != "" && this.input.password != "") {
-                    console.log(this.input);
                     // localStorage.setItem("user", this.input);
                     // this.$router.push('/');
                     UserService.authenticate(this.input)
                     .then((res) => {
                         if(res == "failed"){
                             alert("Incorrect username/password. Please try again.")
-                            console.log("Login failed")
                         } else {
-                            console.log("Login success")
                             this.$router.push('/')
                         }
                     })

@@ -62,9 +62,7 @@ export default {
   created() {
     PresetService.getPresets().then((res) => {
       if (res == "failed") {
-        console.log("failed");
       } else {
-        console.log(res);
         // this.profiles = JSON.parse(localStorage.getItem("presets"));
         this.profiles = res;
         if (this.profiles.length > 0)
@@ -77,7 +75,6 @@ export default {
         
         //upon first login, there is no presettemp to consider
         // localStorage.setItem("presettemp", JSON.stringify(this.selected))
-        console.log("success");
       }
     });
   },
@@ -95,7 +92,6 @@ export default {
     // set the profiles as an array and spread across the current profiles, then add a new one onto it
     // the new profile comes from the AddProfile component
     addProfile(profile) {
-      console.log(profile);
       PresetService.addProfile(profile).then((res) => {
         profile.id = res;
         this.profiles = [...this.profiles, profile];
@@ -129,7 +125,6 @@ export default {
     toggleSelect(id) {
       this.selected = this.profiles.find((profile) => profile.id === id);
       // localStorge.setItem("selected", JSON.stringify(this.selected))
-      console.log(this.selected);
       localStorage.setItem("presettemp", JSON.stringify(this.selected));
     },
   },

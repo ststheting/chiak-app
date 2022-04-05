@@ -68,14 +68,11 @@ export default {
             try{
                 if(this.input.username != "" && this.input.password != "") {
                     if(this.confirmPass == this.input.password){
-                        console.log(this.input);
                         UserService.registerUser(this.input)
                         .then((res) => {
                             if(res == "failed"){
                                 alert("Registration failed, please try again.")
-                                console.log("Register failed")
                             } else {
-                                console.log("Register success")
                                 this.$router.push('/login');
                             }
                         })

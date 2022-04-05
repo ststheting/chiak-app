@@ -61,10 +61,8 @@ export default {
     methods: {
         selectItem(id) {
             this.selected = this.items.find(item => item.id === id)
-            console.log(this.selected)
         },
         test(){
-            console.log(this.items.length)
         }
     }
 }

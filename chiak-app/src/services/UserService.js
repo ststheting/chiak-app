@@ -19,7 +19,6 @@ class UserService {
                 // return response.data;
             })
             .catch((err) => {
-                console.log(err);
                 // this.signOut();
                 return "failed";
             });
@@ -30,11 +29,9 @@ class UserService {
             .post(AUTH_API_URL, user)
             .then((response) => {
                 sessionStorage.setItem("user", JSON.stringify(response.data));
-                // console.log(localStorage.getItem("user"));
                 // return response.data;
             })
             .catch((err) => {
-                // console.log(err); //make this so 404 shows an alert
                 // throw err;
                 return "failed";
             });
