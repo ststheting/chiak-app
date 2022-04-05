@@ -16,10 +16,10 @@
         <img :src="item.imgUrl" width="200" height="200" />
       </div>
       <div class="ml-4">
-        <h1 class="text-2xl mb-2 whitespace-normal">{{ item.name }}</h1>
+        <h1 class="text-2xl mb-2 whitespace-normal temporary">{{ item.name }}</h1>
         <p class="text-lg mb-4">{{ item.brand }}</p>
         <p class="text-md"><b>Serving Size</b>: {{ item.servingSize }}</p>
-        <p class="text-md"><b>Price</b>: S${{ Number(item.price).toFixed(2) }}</p>
+        <p class="text-md"><b>Price</b>: ${{ Number(item.price).toFixed(2) }}</p>
       </div>
     </div>
     <div class="flex justify-between items-center">
@@ -39,7 +39,7 @@
           <b>Protein</b>: {{ item.protein }} mg 
            </div>
            <div>
-          <b>Total Sodium</b>: {{ item.sodium }} g
+          <b>Sodium</b>: {{ item.sodium }} g
            </div>
            <div>
           <b>Fibre</b>: {{ item.fibre }} g
@@ -71,7 +71,7 @@ export default {
 };
 </script>
 <style>
-h1{
+.temporary{
   max-width: 15rem;
 }
 </style>
